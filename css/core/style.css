@@ -1760,7 +1760,7 @@ body {
   background-color: none;
   border: none;
   box-shadow: none;
-  margin-bottom: 25px;
+  margin-bottom: 0px;/*Modificado era 25px*/
 }
 .panel-tools {
   display: inline-block;
