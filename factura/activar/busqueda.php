@@ -21,26 +21,37 @@ $TxtCodigoDeControl2=$datos['Codigo2'];
 
 ?>
 <table class="table table-bordered table-striped table-hover">
-<thead>
     <tr>
-        <th>Número de Autorización</th>
-        <th>Nº Factura</th>
-        <th>Nit</th>
-        <th>Fecha Factura</th>
-        <th>Total Bs</th>
-        <th width="400">Llave de Dosificación</th>
-        <th width="600">Código de Control</th>
-        <th width="600">Código de Control 2</th>
+        <td><strong>Número de Autorización</strong></td>
+        <td><?php echo $NumeroAutorizacion?></td>
     </tr>
-</thead>
-<tr>
-    <td><small><?php echo $NumeroAutorizacion?></small></td>
-    <td><small><?php echo $NFactura?></small></td>
-    <td><small><?php echo $Nit?></small></td>
-    <td><small><?php echo $FechaCodigo?></small></td>
-    <td><small><?php echo $TotalBsCodigo?></small></td>
-    <td><small><?php echo $LlaveDosificacion?></small></td>
-    <td><strong><span class="badge badge-info"><?php echo $TxtCodigoDeControl?></span></strong></td>
-    <td><strong><span class="badge badge-info"><?php echo $TxtCodigoDeControl2?></span></strong></td>
-</tr>
+    <tr>
+        <td><strong>Nº Factura</strong></td>
+        <td><?php echo $NFactura?></td>
+    </tr>
+    <tr>
+        <td><strong>Nit</strong></td>
+        <td><?php echo $Nit?></td>
+    </tr>
+    <tr>
+        <td><strong>Fecha de Factura</strong></td>
+        <td><?php echo $FechaCodigo?></td>
+    </tr>
+    <tr>
+        <td><strong>Total Bs</strong></td>
+        <td><?php echo $TotalBsCodigo?></td>
+    </tr>
+    <tr>
+        <td><strong>Llave de Dosificación</strong></td>
+        <td><?php echo $LlaveDosificacion?></td>
+    </tr>
+    <tr>
+        <td><strong>Código de Control</strong></td>
+        <td><strong><span class="badge badge-info"><?php echo $TxtCodigoDeControl?></span></strong></td>
+    </tr>
+    <tr>
+        <td><strong>Código de Control 2</strong></td>
+        <td><strong><span class="badge badge-info"><?php echo $TxtCodigoDeControl2?></span></strong></td>
+    </tr>
+
 </table>
