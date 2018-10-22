@@ -2,7 +2,7 @@
 <body class="fixed-navbar fixed-sidebar fixed-footer">
 
 <!-- Simple splash screen-->
-<div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>Sistema de Administración de Inventario, Ventas y Facturación </h1><p> Sistema Desarrollado por: <a href="http://fb.com/ronaldnina" target="_blank">Ronald Nina</a> </p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
+<div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>Sistema de Facturación Computarizada </h1><p> Sistema Desarrollado por: <a href="http://fb.com/ronaldnina" target="_blank">Ronald Nina</a> </p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
 <!--[if lt IE 7]>
 <p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
