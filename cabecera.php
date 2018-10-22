@@ -174,7 +174,7 @@
 <aside id="menu">
     <div id="navigation">
         <div class="profile-picture">
-            <a href="index-2.html">
+            <a href="<?php echo $folder;?>">
                 <img src="<?php echo $folder?>imagenes/logo/logo.jpg" class="img-thumbnail  m-b" alt="logo">
             </a>
 
