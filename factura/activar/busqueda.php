@@ -1,7 +1,7 @@
 <?php
 include_once("../../login/check.php");
-//extract($_POST);
-//print_r($_POST);
+
+
 $NumeroAutorizacion=$_POST['NumeroAutorizacion'];
 $Nit=$_POST['Nit'];
 $NFactura=$_POST['NFactura'];
@@ -10,17 +10,12 @@ $TotalBs=$_POST['TotalBsCodigo'];
 $FechaCodigo=date("Ymd",strtotime($FechaFactura));
 $TotalBsCodigo=round(str_replace(',', '.', $TotalBs), 0);
 $LlaveDosificacion=stripslashes($_POST['LlaveDosificacion']);
-//echo $LlaveDosificacion;
 
-include_once("../../factura/codigocontrol.class.php");
-$CodigoControl=new CodigoControl($NumeroAutorizacion,$NFactura,$Nit,$FechaCodigo,$TotalBsCodigo,$LlaveDosificacion);
-$TxtCodigoDeControl=$CodigoControl->generar();
+require_once("../generar.php");
 
-//$CodigoControl2=new CodigoControl($NumeroAutorizacion,$NFactura,$Nit,$FechaCodigo,$TotalBsCodigo,$LlaveDosificacion);
-//$TxtCodigoDeControl2=$CodigoControl2->generar();
-require_once("../../factura/facturacion2/CodigoControlV7.php");
-
-$TxtCodigoDeControl2=CodigoControlV7::generar($NumeroAutorizacion, $NFactura, $Nit, $FechaCodigo, $TotalBsCodigo, $LlaveDosificacion);
+$datos=generarCodigoControl($Nit,$NFactura,$Nit,$FechaCodigo,$TotalBsCodigo,$LlaveDosificacion);
+$TxtCodigoDeControl=$datos['Codigo1'];
+$TxtCodigoDeControl2=$datos['Codigo2'];
 
 
 
@@ -48,11 +43,4 @@ $TxtCodigoDeControl2=CodigoControlV7::generar($NumeroAutorizacion, $NFactura, $N
     <td><strong><span class="badge badge-info"><?php echo $TxtCodigoDeControl?></span></strong></td>
     <td><strong><span class="badge badge-info"><?php echo $TxtCodigoDeControl2?></span></strong></td>
 </tr>
-<?php
-
-    
-
-//listadotabla(array("nombre"=>"Factura A","nit"=>"Nit","fechaventa"=>"Fecha de Factura","NFactura"=>"Nº Factura","total"=>"Total","pagado"=>""),$datos,1,"","","",array("../../impresion/factura/facturaticket.php"=>"Ver Factura"),"","_blank");
-?>
-
 </table>
