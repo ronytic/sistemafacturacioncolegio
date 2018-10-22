@@ -12,9 +12,15 @@ $titulo2=" ";
                     <h3 class="text-center">Bienvenido al Sistema de Facturación</h3>
                     <hr>
                     <div class="badge badge-info">Registro de Alumnos</div>
+                    <br><br>
                     <div class="badge badge-info">Registro de Cursos</div>
-                    <div class="badge badge-primary">Configuración</div>
+                    <br><br>
+                    <div class="badge badge-info">Registro de Facturación</div>
+                    <br><br>
+                    <div class="badge badge-primary">Configuración General del Sistema</div>
+                    <br><br>
                     <div class="badge badge-danger">Verificación de Código de Control</div>
+                    <br><br>
                     <div class="badge badge-danger">Reporte de Libro de Ventas</div>
                 </div>
 <?php include_once("pie.php");?>
