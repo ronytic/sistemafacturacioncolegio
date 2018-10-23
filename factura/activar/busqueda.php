@@ -13,7 +13,7 @@ $LlaveDosificacion=($_POST['LlaveDosificacion']);
 
 require_once("../generar.php");
 
-$datos=generarCodigoControl($Nit,$NFactura,$Nit,$FechaCodigo,$TotalBsCodigo,$LlaveDosificacion);
+$datos=generarCodigoControl($NumeroAutorizacion,$NFactura,$Nit,$FechaCodigo,$TotalBsCodigo,$LlaveDosificacion);
 $TxtCodigoDeControl=$datos['Codigo1'];
 $TxtCodigoDeControl2=$datos['Codigo2'];
 
