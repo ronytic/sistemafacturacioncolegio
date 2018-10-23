@@ -16,7 +16,7 @@ $titulo2=" ";
                     <br><br>
                     <a class="btn btn-info form-control" href="curso/registro/">Registro de Cursos</a>
                     <br><br>
-                    <a class="btn btn-info form-control" href="factura/registro/">Registro de Facturación</a>
+                    <a class="btn btn-primary form-control" href="factura/registro/">Registro de Facturación</a>
                     <br><br>
                     <a class="btn btn-primary form-control" href="configuracion/general/">Configuración General del Sistema</a>
                     <br><br>
