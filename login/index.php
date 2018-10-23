@@ -44,8 +44,9 @@ $folder="../";
 
 <div class="login-container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-10 col-lg-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
             <div class="text-center m-b-md">
+                <img src="../imagenes/logo/logo.jpg" class="img-thumbnail" width="30%">
                 <h3><?php echo $titulo?></h3>
                 <small><?php echo $Lema?></small>
             </div>
