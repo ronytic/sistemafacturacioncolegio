@@ -11,16 +11,18 @@ $titulo2=" ";
                 <div class="col-lg-10 col-lg-offset-1">
                     <h3 class="text-center">Bienvenido al Sistema de Facturación</h3>
                     <hr>
-                    <div class="badge badge-info">Registro de Alumnos</div>
+                    <div class="col-lg-5">
+                    <a class="btn btn-info form-control" href="alumno/registro/">Registro de Alumnos</a>
                     <br><br>
-                    <div class="badge badge-info">Registro de Cursos</div>
+                    <a class="btn btn-info form-control" href="curso/registro/">Registro de Cursos</a>
                     <br><br>
-                    <div class="badge badge-info">Registro de Facturación</div>
+                    <a class="btn btn-info form-control" href="factura/registro/">Registro de Facturación</a>
                     <br><br>
-                    <div class="badge badge-primary">Configuración General del Sistema</div>
+                    <a class="btn btn-primary form-control" href="configuracion/general/">Configuración General del Sistema</a>
                     <br><br>
-                    <div class="badge badge-danger">Verificación de Código de Control</div>
+                    <a class="btn btn-danger form-control" href="factura/activar/">Verificación de Código de Control</a>
                     <br><br>
-                    <div class="badge badge-danger">Reporte de Libro de Ventas</div>
+                    <a class="btn btn-danger form-control">Reporte de Libro de Ventas</a>
+                    </div>
                 </div>
 <?php include_once("pie.php");?>
