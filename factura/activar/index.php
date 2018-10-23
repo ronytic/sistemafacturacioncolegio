@@ -22,20 +22,20 @@ $(document).on("ready",function(){
     <div class="table-responsive">
     <table class="table table-bordered table-hover">
         <tr>
-            <td class="text-center text-bold" colspan="1" width="30%">Número de Autorización<br><input type="text" name="NumeroAutorizacion" class="form-control"  value="2104001833598"></td>
-            <td class="text-center text-bold" width="200">Nº de Factura<br><input type="text" name="NFactura" class="form-control text-right"  value="4"></td>
-            <td class="text-center text-bold">Nit<br><input type="text" name="Nit" class="form-control"  value="6060424" size="8"></td>
+            <td class="text-center text-bold" colspan="1" width="30%">Número de Autorización<br><input type="text" name="NumeroAutorizacion" class="form-control"  value="7904006306693"></td>
+            <td class="text-center text-bold" width="200">Nº de Factura<br><input type="text" name="NFactura" class="form-control text-right"  value="876814"></td>
+            <td class="text-center text-bold">Nit<br><input type="text" name="Nit" class="form-control"  value="1665979" size="8"></td>
         </tr>
         <tr>
-            <td class="text-center text-bold">Fecha de Factura<br><input type="date" name="FechaFactura" class="form-control" autofocus value="<?php echo date("Y-m-d")?>" required></td>
+            <td class="text-center text-bold">Fecha de Factura<br><input type="date" name="FechaFactura" class="form-control" autofocus value="2008-05-19" required></td>
             
-            <td class="text-center text-bold">Total en Bs<br><input type="number" name="TotalBsCodigo" class="form-control text-right"  value="956.85" step="0.01"></td>
-            <td class="text-center text-bold"  colspan="2">Llave de Dosificación<br><input type="text" name="LlaveDosificacion" class="form-control"  value="WxX8gD]Q3QgC9\y##E3z7Z\neTgxv2YED*$RmdFC[@Cr32M$c85Q@DHUmy(J2uEp"></td>
+            <td class="text-center text-bold">Total en Bs<br><input type="number" name="TotalBsCodigo" class="form-control text-right"  value="35958.6" step="0.01"></td>
+            <td class="text-center text-bold"  colspan="2">Llave de Dosificación<br><input type="text" name="LlaveDosificacion" class="form-control"  value="zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS"></td>
         </tr>
     </table>
         
         </div>
-        <input type="submit" value="Generar" class="btn btn-info">
+        <input type="submit" value="Generar" class="btn btn-info"> (Código de Control: <strong>7B-F3-48-A8</strong>)
     </form>
         </div>
         </div>
