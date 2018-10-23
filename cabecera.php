@@ -36,9 +36,9 @@
                         <a class="" href="<?php echo $folder?>">Inicio</a>
                     </li>
                     
-                    <li>
+                    <!--<li>
                         <a class="" href="<?php echo $folder?>usuario/contrasena/">Modificar Contraseña</a>
-                    </li>
+                    </li>-->
                     
                     <li>
                         <a class="" href="<?php echo $folder?>login/logout.php">Salir del Sistema</a>
