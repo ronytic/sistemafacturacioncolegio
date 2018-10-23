@@ -31,6 +31,8 @@ $f=$factura->ObtenerNReferencia();
 $f=array_shift($f);
 $NReferencia=$f['NReferencia'];
 if($NReferencia==""){$NReferencia=1;}
+
+$lectura=0;
 ?>
 <link href="<?=$folder;?>css/estilo.css?1" rel="stylesheet" type="text/css">
 <link href="../../js/core/select2-3.5.2/select2.css" rel="stylesheet" type="text/css">
@@ -54,9 +56,9 @@ if($NReferencia==""){$NReferencia=1;}
     <table class="table table-bordered inicio">
         <thead>
             <tr>
-                <th>Fecha<br><input type="date" class="fecha form-control" name="FechaFactura" value="<?php echo fecha2Str("",0)?>" required readonly></th>
+                <th>Fecha<br><input type="date" class="fecha form-control" name="FechaFactura" value="<?php echo fecha2Str("",0)?>" required <?=$lectura?'readonly':''?>></th>
 
-                <th>Nº Factura<br><input type="text" class="derecha NFactura form-control" name="NFactura" value="<?php echo $_GET['f']==1?$_GET['NFactura']:$NFactura?>" required readonly></th>
+                <th>Nº Factura<br><input type="text" class="derecha NFactura form-control" name="NFactura" value="<?php echo $_GET['f']==1?$_GET['NFactura']:$NFactura?>" required <?=$lectura?'readonly':''?>></th>
 
                 <th>Nº Referencia<br><input type="text" class="derecha span12 form-control" name="NReferencia" readonly value="<?php echo $NReferencia?>" required ></th>
             </tr>
@@ -107,13 +109,13 @@ if($NReferencia==""){$NReferencia=1;}
             </td>
         </tr>
         <tr class="success">
-            <td class="resaltar der" colspan="1">Total Bs</td><td><input type="number" name="TotalBs" class="form-control text-right TotalBs" value="0.00" step="0.01" readonly></td>
+            <td class="resaltar der" colspan="1">Total Bs</td><td><input type="number" name="TotalBs" class="form-control text-right TotalBs" value="0.00" step="0.01" <?=$lectura?'readonly':''?>></td>
         </tr>
         <tr class="info">
             <td class="resaltar der" colspan="1">Cancelado</td><td><input type="number" name="Cancelado"  class="form-control text-right Cancelado" value="0.00" min="0" step="0.01"></td>
         </tr>
         <tr class="warning">
-            <td class="resaltar der" colspan="1">Cambio</td><td><input type="number" name="MontoDevuelto" readonly class="form-control text-right MontoDevuelto" value="0.00" step="0.01"></td>
+            <td class="resaltar der" colspan="1">Cambio</td><td><input type="number" name="MontoDevuelto" <?=$lectura?'readonly':''?> class="form-control text-right MontoDevuelto" value="0.00" step="0.01"></td>
         </tr>
         <tr><td class="centrar" colspan="8"> <a href="./" class="btn btn-info">Cancelar</a>  <input type="submit" class="btn btn-<?=$FechaLimiteEmision<=date("Y-m-d")?'danger':'success'?>" id="Guardar" value="Guardar" <?=$FechaLimiteEmision<=date("Y-m-d")?'disabled':''?>></td></tr>
     </table>
