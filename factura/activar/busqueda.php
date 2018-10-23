@@ -9,7 +9,7 @@ $FechaFactura=$_POST['FechaFactura'];
 $TotalBs=$_POST['TotalBsCodigo'];
 $FechaCodigo=date("Ymd",strtotime($FechaFactura));
 $TotalBsCodigo=round(str_replace(',', '.', $TotalBs), 0);
-$LlaveDosificacion=stripslashes($_POST['LlaveDosificacion']);
+$LlaveDosificacion=($_POST['LlaveDosificacion']);
 
 require_once("../generar.php");
 
