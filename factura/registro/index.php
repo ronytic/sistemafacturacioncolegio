@@ -54,9 +54,9 @@ if($NReferencia==""){$NReferencia=1;}
     <table class="table table-bordered inicio">
         <thead>
             <tr>
-                <th>Fecha<br><input type="date" class="fecha form-control" name="FechaFactura" value="<?php echo fecha2Str("",0)?>" required></th>
+                <th>Fecha<br><input type="date" class="fecha form-control" name="FechaFactura" value="<?php echo fecha2Str("",0)?>" required readonly></th>
 
-                <th>Nº Factura<br><input type="text" class="derecha NFactura form-control" name="NFactura" value="<?php echo $_GET['f']==1?$_GET['NFactura']:$NFactura?>" required ></th>
+                <th>Nº Factura<br><input type="text" class="derecha NFactura form-control" name="NFactura" value="<?php echo $_GET['f']==1?$_GET['NFactura']:$NFactura?>" required readonly></th>
 
                 <th>Nº Referencia<br><input type="text" class="derecha span12 form-control" name="NReferencia" readonly value="<?php echo $NReferencia?>" required ></th>
             </tr>
@@ -107,7 +107,7 @@ if($NReferencia==""){$NReferencia=1;}
             </td>
         </tr>
         <tr class="success">
-            <td class="resaltar der" colspan="1">Total Bs</td><td><input type="number" name="TotalBs" class="form-control text-right TotalBs" value="0.00" step="0.01"></td>
+            <td class="resaltar der" colspan="1">Total Bs</td><td><input type="number" name="TotalBs" class="form-control text-right TotalBs" value="0.00" step="0.01" readonly></td>
         </tr>
         <tr class="info">
             <td class="resaltar der" colspan="1">Cancelado</td><td><input type="number" name="Cancelado"  class="form-control text-right Cancelado" value="0.00" min="0" step="0.01"></td>

@@ -28,6 +28,7 @@ $NitEmisor=$config->mostrarConfig("NitEmisor",1);
 $ActividadEconomica=$config->mostrarConfig("ActividadEconomica",1);
 $RazonSocialEmisor=$config->mostrarConfig("NombreEmpresa",1);
 $LeyendaPiePagina=$config->mostrarConfig("LeyendaPiePagina",1);
+$LeyendaPiePagina2=$config->mostrarConfig("LeyendaPiePagina2",1);
 $ImagenFondo=$config->mostrarConfig("ImagenFondo",1);
 
 $FechaCodigo=date("Ymd",strtotime($FechaFactura));
@@ -62,6 +63,7 @@ $valores=array(
 "RazonSocialEmisor"=>"'$RazonSocialEmisor'",
 "ActividadEconomica"=>"'$ActividadEconomica'",
 "LeyendaPiePagina"=>"'$LeyendaPiePagina'",
+"LeyendaPiePagina2"=>"'$LeyendaPiePagina2'",
 "ImagenFondo"=>"'$ImagenFondo'",
     
 );
@@ -77,16 +79,20 @@ $CodFactura=$factura->ultimo();
 
 include_once("../../class/facturadetalle.php");
 $facturadetalle=new facturadetalle();
-
+include_once("../../class/cuota.php");
+$cuota=new cuota();
 foreach($a as $f){
     $CodAlumno=$f['CodAlumno'];
     $Nombre=$f['Nombre'];
     $Cuota=$f['Cuota'];
+    $MontoCuota=$f['MontoCuota'];
     $CodCuotas=array();
+    if(count($Cuota)>0){
     foreach($Cuota as $ck=>$cv){
         array_push($CodCuotas,$ck);
+        $cuota->actualizarCuota(array("MontoPagar"=>"'$MontoCuota'","Factura"=>"'$NFactura'","Cancelado"=>"1","Fecha"=>"'".date("Y-m-d H:i:s")."'","Observaciones"=>"'Facturado'"),"CodCuota=$ck");
     }
-    $MontoCuota=$f['MontoCuota'];
+    }
     $Total=$f['Total'];
     $valordet=array(
         "CodFactura"=>"'$CodFactura'",
@@ -108,15 +114,5 @@ foreach($a as $f){
 print_r($valores);
 echo "</pre>";
 */
-$url="";
-$titulo="Mensaje de Confirmación";
-$subtitulo="";
-$titulo2=" ";
-$folder="../../";
-include_once($folder."cabecerahtml.php");
+header("Location:../ver/ver.php?Cod=".$CodFactura);
 ?>
-<?php include_once($folder."cabecera.php");?>
-<div class="col-lg-12">
-    <iframe src="<?=$url?>" frameborder="0" width="100%" height="500"></iframe>
-</div>
-<?php include_once($folder."pie.php");?>
