@@ -32,7 +32,7 @@ $f=array_shift($f);
 $NReferencia=$f['NReferencia'];
 if($NReferencia==""){$NReferencia=1;}
 
-$lectura=0;
+$lectura=1;
 ?>
 <link href="<?=$folder;?>css/estilo.css?1" rel="stylesheet" type="text/css">
 <link href="../../js/core/select2-3.5.2/select2.css" rel="stylesheet" type="text/css">
@@ -58,7 +58,7 @@ $lectura=0;
             <tr>
                 <th>Fecha<br><input type="date" class="fecha form-control" name="FechaFactura" value="<?php echo fecha2Str("",0)?>" required <?=$lectura?'readonly':''?>></th>
 
-                <th>Nº Factura<br><input type="text" class="derecha NFactura form-control" name="NFactura" value="<?php echo $_GET['f']==1?$_GET['NFactura']:$NFactura?>" required <?=$lectura?'readonly':''?>></th>
+                <th>Nº Factura<br><input type="number" class="derecha NFactura form-control" name="NFactura" value="<?php echo $_GET['f']==1?$_GET['NFactura']:$NFactura?>" required <?=$lectura?'readonly':''?>></th>
 
                 <th>Nº Referencia<br><input type="text" class="derecha span12 form-control" name="NReferencia" readonly value="<?php echo $NReferencia?>" required ></th>
             </tr>
@@ -75,7 +75,7 @@ $lectura=0;
 
                 </th>
 
-                <th>CI/Nit<br><input type="text" class="span12 form-control" name="Nit" required></th>
+                <th>CI/Nit<br><input type="number" class="span12 form-control" name="Nit" required></th>
 
                 <th>Señores<br><input type="text" class="span12 form-control" name="NombreFactura" required value=""></th>
 
