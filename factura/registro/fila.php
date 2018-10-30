@@ -24,7 +24,7 @@ if(isset($_POST)){
         </div>
         </td>
         <td>
-        	<input type="text" readonly class="form-control text-right MontoCuota" value="0.00" name="a[<?php echo $l?>][MontoCuota]" rel="<?php echo $l?>">
+        	<input type="text"  class="form-control text-right MontoCuota" value="0.00" name="a[<?php echo $l?>][MontoCuota]" rel="<?php echo $l?>">
         </td>
 
         <td class="contenedoreliminar">
