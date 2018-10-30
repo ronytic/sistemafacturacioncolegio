@@ -15,8 +15,6 @@ if(empty($CodCurso)){
 }
 $curso=new curso;
 ?>
-<div class="span11">
-
         <div class="box-header"><h5>Curso</h5></div>
         <div class="box-content">
             <select class="form-control" id="selectcurso" data-placeholder="Seleccione un Curso" >
@@ -38,4 +36,3 @@ $curso=new curso;
             </select>
         </div>
 
-</div>
