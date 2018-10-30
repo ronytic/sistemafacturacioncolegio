@@ -33,6 +33,8 @@ $ImagenFondo=$config->mostrarConfig("ImagenFondo",1);
 
 $FechaCodigo=date("Ymd",strtotime($FechaFactura));
 $TotalBsCodigo=round(str_replace(',', '.', $TotalBs), 0);
+//echo $LlaveDosificacion;
+//exit();
 require_once("../generar.php");
 
 
