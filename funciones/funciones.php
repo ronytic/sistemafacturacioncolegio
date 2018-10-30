@@ -554,7 +554,7 @@ function num2letras($num, $fem = false, $dec = true) {
       if ($sub == 1) { 
       }elseif (! isset($matsub[$sub])) { 
          if ($num == 1) { 
-            $t = ' mil'; 
+            $t = ' un mil'; 
          }elseif ($num > 1){ 
             $t .= ' mil'; 
          } 
