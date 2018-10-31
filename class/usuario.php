@@ -1,4 +1,5 @@
 <?php
+define("Usuario",1);
 include_once("bd.php");
 class usuario extends bd{
 	var $tabla="usuario";
