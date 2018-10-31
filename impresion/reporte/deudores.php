@@ -56,10 +56,12 @@ foreach($al as $a){
         if($cu1['Cancelado']){
             $cant++;
             $r=1;
+            $fe=date("d/m",strtotime($cu1['Fecha']));
         }else{
             $r=0;
+            $fe="";
         }
-        $pdf->CuadroCuerpo(7,"",$r,"",1);
+        $pdf->CuadroCuerpo(7,$fe,$r,"C",1,6);
     }
     $pdf->CuadroCuerpo(7,$cant,0,"R",1);
     $pdf->ln();
