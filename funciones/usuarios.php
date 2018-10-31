@@ -1,15 +1,15 @@
 <?php
 
-function DatosUsuario($Nivel,$CodUsuario){
-	global $idioma;
-	include_once("../../class/logusuario.php");
-	include_once("../../class/usuario.php");
-	$logusuario=new logusuario;
-	$usuario=new usuario;
-	
+function DatosUsuario($CodUsuario){
+    if(!defined("Usuario")){
+	   include_once("../../class/usuario.php");
+    }
+    if(!isset($usu)){
+	   $us100=new usuario;
+    }
 	
 		$Usuario=$idioma["Administrador"];
-					$ul=$usuario->mostrarDatos($CodUsuario);
+					$ul=$us100->mostrarDatos($CodUsuario);
 					$ul=array_shift($ul);
 					$tipousuario=$idioma['Administrador'];
 					$Foto=$folder."imagenes/usuario/".$ul['Foto'];
