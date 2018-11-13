@@ -78,8 +78,8 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
             $this->altocelda=$a;    
         }
 		function Fuente($tipo="B",$tam=10,$TipoRelleno=2){
-            if($TipoRelleno==1){
-                $this->SetFillColor(204,204,204);
+            if($TipoRelleno==3){
+                $this->SetFillColor(211,226,255);
             }
             if($TipoRelleno==2){
                 $this->SetFillColor(184,184,184);
@@ -97,9 +97,14 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 			$this->Cell($txtAncho,4,utf8_decode($txt),$borde,0,$align);	
 		}
 		function CuadroCuerpo($txtAncho,$txt,$relleno=0,$align="L",$borde=0,$tam=9,$tipo=""){
-
-			$this->Fuente($tipo,$tam);
-    		$this->Cell($txtAncho,$this->altocelda,utf8_decode($txt),$borde,0,$align,$relleno);	
+			if($relleno>=2){
+				$this->Fuente($tipo,$tam,$relleno);
+				$rell=1;
+			}else{
+				$this->Fuente($tipo,$tam);
+				$rell=$relleno;
+			}
+    		$this->Cell($txtAncho,$this->altocelda,utf8_decode($txt),$borde,0,$align,$rell);	
 		}
 		function CuadroCuerpoMulti($txtAncho,$txt,$relleno=0,$align="L",$borde=0,$tam=9,$tipo=""){
 			$this->Fuente($tipo,$tam);
