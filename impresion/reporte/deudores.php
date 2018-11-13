@@ -42,10 +42,15 @@ $pdf->AddPage();
 $j=0;
 foreach($al as $a){
     $j++;
-    $pdf->CuadroCuerpo(10,$j,0,"R");
-    $pdf->CuadroCuerpo(25,capitalizar($a['Paterno']));
-    $pdf->CuadroCuerpo(25,capitalizar($a['Materno']));
-    $pdf->CuadroCuerpo(30,capitalizar($a['Nombres']));
+    if($j%2==0){
+        $pintar=3;
+    }else{
+        $pintar=0;
+    }
+    $pdf->CuadroCuerpo(10,$j,$pintar,"R");
+    $pdf->CuadroCuerpo(25,capitalizar($a['Paterno']),$pintar);
+    $pdf->CuadroCuerpo(25,capitalizar($a['Materno']),$pintar);
+    $pdf->CuadroCuerpo(30,capitalizar($a['Nombres']),$pintar);
     $cant=0;
     for($i=1;$i<=10;$i++){
         
