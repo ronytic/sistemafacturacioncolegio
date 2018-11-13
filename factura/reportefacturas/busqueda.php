@@ -39,6 +39,17 @@ $TotalBs=0;
 $Cancelado=0;
 $MontoDevuelto=0;
 foreach($fact as $f){$i++;
+    if($f['Estado']=="Valido"){
+        $Nit=$f['Nit'];
+        $NombreFactura=$f['Factura'];
+        $TotalBs=number_format($f['TotalBs'],2);
+        $CodigoControl=$f['CodigoControl'];
+    }else{
+        $Nit="0";
+        $NombreFactura="ANULADO";
+        $TotalBs=number_format(0,2);
+        $CodigoControl="";
+    }
   ?>
     <tr class="<?php echo $f['Estado']=="Anulado"?'danger"':''?>">
         <td align="right">3</td>
@@ -47,17 +58,17 @@ foreach($fact as $f){$i++;
         <td align="right"><?php echo $f['NFactura']?></td>
         <td align="right"><?php echo $f['NumeroAutorizacion']?></td>
         <td align="center"><?php echo $f['Estado']=="Valido"?'V':'A'?></td>
-        <td align="right"><?php echo $f['Nit']?></td>
-        <td><?php echo $f['Factura']?></td>
-        <td align="right"><?php echo number_format($f['TotalBs'],2)?></td>
+        <td align="right"><?php echo $Nit?></td>
+        <td><?php echo $NombreFactura?></td>
+        <td align="right"><?php echo number_format($TotalBs,2)?></td>
         <td align="right"><?php echo number_format(0,2)?></td>
         <td align="right"><?php echo number_format(0,2)?></td>
         <td align="right"><?php echo number_format(0,2)?></td>
-        <td align="right"><?php echo number_format($f['TotalBs'],2)?></td>
+        <td align="right"><?php echo number_format($TotalBs,2)?></td>
         <td align="right"><?php echo number_format(0,2)?></td>
-        <td align="right"><?php echo number_format($f['TotalBs'],2)?></td>
-        <td align="right"><?php echo number_format($f['TotalBs']*0.13,2)?></td>
-        <td><?php echo $f['CodigoControl']?></td>
+        <td align="right"><?php echo number_format($TotalBs,2)?></td>
+        <td align="right"><?php echo number_format($TotalBs*0.13,2)?></td>
+        <td><?php echo $CodigoControl?></td>
       </tr>
   <?php
 }
