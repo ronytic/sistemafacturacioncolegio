@@ -59,7 +59,7 @@ foreach($fact as $f){$i++;
         <td align="right"><?php echo $f['NumeroAutorizacion']?></td>
         <td align="center"><?php echo $f['Estado']=="Valido"?'V':'A'?></td>
         <td align="right"><?php echo $Nit?></td>
-        <td><?php echo $NombreFactura?></td>
+        <td><?php echo mayuscula($NombreFactura);?></td>
         <td align="right"><?php echo number_format($TotalBs,2)?></td>
         <td align="right"><?php echo number_format(0,2)?></td>
         <td align="right"><?php echo number_format(0,2)?></td>
