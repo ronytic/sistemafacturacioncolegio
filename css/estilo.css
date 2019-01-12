@@ -33,3 +33,6 @@
 .contenedoreliminar:hover .eliminar{
     display: block;
 }
+textarea{
+	resize:none;	
+}
