@@ -58,6 +58,19 @@ $(document).on("ready",function(){
             }break;
         }
     });
+	//alert("Cargo");
+	$(document).on("click","#guardar",function(e){
+		
+		var Cancelado=parseFloat($(".Cancelado").val());
+		if(Cancelado>0){
+			
+		}else{
+			alert("El Monto Cancelado debe ser Mayor a 0");
+			$(".Cancelado").select();
+			e.preventDefault();	
+		}
+		
+	});
     $(document).on("change",".opcionCuota",function(){
         var fi=$(this).attr("rel");
         var cantvalores=$(".opcionCuota[rel="+fi+"]:checked").length;
