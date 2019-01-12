@@ -39,15 +39,18 @@ $TotalBs=0;
 $Cancelado=0;
 $MontoDevuelto=0;
 foreach($fact as $f){$i++;
+    /*echo "<pre>";
+    print_r($f);
+    echo "</pre>";*/
     if($f['Estado']=="Valido"){
         $Nit=$f['Nit'];
-        $NombreFactura=$f['Factura'];
-        $TotalBs=number_format($f['TotalBs'],2);
+        $NombreFactura=mb_strtoupper($f['Factura'],"utf8");
+        $TotalBs=($f['TotalBs']);
         $CodigoControl=$f['CodigoControl'];
     }else{
         $Nit="0";
         $NombreFactura="ANULADO";
-        $TotalBs=number_format(0,2);
+        $TotalBs=0;
         $CodigoControl="";
     }
   ?>
@@ -59,15 +62,15 @@ foreach($fact as $f){$i++;
         <td align="right"><?php echo $f['NumeroAutorizacion']?></td>
         <td align="center"><?php echo $f['Estado']=="Valido"?'V':'A'?></td>
         <td align="right"><?php echo $Nit?></td>
-        <td><?php echo mayuscula($NombreFactura);?></td>
-        <td align="right"><?php echo number_format($TotalBs,2)?></td>
-        <td align="right"><?php echo number_format(0,2)?></td>
-        <td align="right"><?php echo number_format(0,2)?></td>
-        <td align="right"><?php echo number_format(0,2)?></td>
-        <td align="right"><?php echo number_format($TotalBs,2)?></td>
-        <td align="right"><?php echo number_format(0,2)?></td>
-        <td align="right"><?php echo number_format($TotalBs,2)?></td>
-        <td align="right"><?php echo number_format($TotalBs*0.13,2)?></td>
+        <td><?php echo $NombreFactura?></td>
+        <td align="right"><?php echo number_format($TotalBs,2,'.',"")?></td>
+        <td align="right"><?php echo number_format(0,2,'.',"")?></td>
+        <td align="right"><?php echo number_format(0,2,'.',"")?></td>
+        <td align="right"><?php echo number_format(0,2,'.',"")?></td>
+        <td align="right"><?php echo number_format($TotalBs,2,'.',"")?></td>
+        <td align="right"><?php echo number_format(0,2,'.',"")?></td>
+        <td align="right"><?php echo number_format($TotalBs,2,'.',"")?></td>
+        <td align="right"><?php echo number_format($TotalBs*0.13,2,'.',"")?></td>
         <td><?php echo $CodigoControl?></td>
       </tr>
   <?php
