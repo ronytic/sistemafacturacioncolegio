@@ -25,9 +25,15 @@ include_once("../../class/usuario.php");
 $us100=new usuario;
 $ul=$us100->mostrarDatos($CodigoUsuario);
 $ul=array_shift($ul);
-$DatosGenerador=array("Paterno"=>$ul['Paterno'],
-		"Materno"=>$ul['Materno'],
-		"Nombres"=>$ul['Nombres']);
+switch($ul['Nivel']){
+	case 1:{$TipoUsuario="Administrador";}break;
+}
+
+$DatosGenerador=array("TipoUsuario"=>$TipoUsuario,
+											"Paterno"=>$ul['Paterno'],
+											"Materno"=>$ul['Materno'],
+											"Nombres"=>$ul['Nombres']
+										);
 
 	class PPDF extends FPDF{
 		var $ancho=176;
@@ -44,7 +50,7 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 			$this->SetAutoPageBreak(true,15);
 			global $title,$gestion,$titulo,$logo,$idioma;
 			$fecha=capitalizar(strftime("%A, %d "))." de ".capitalizar(strftime(" %B "))." de ".strftime(" %Y");
-			
+
 			$this->Image("../../imagenes/logo/".$logo,10,10,20,20);
 			$this->Fuente("B",10);
 			$this->SetXY(34,12);
@@ -52,7 +58,7 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 			$this->Fuente("B",8);
 			$this->SetXY(34,16);
 			$this->Cell(70,4,utf8_decode($gestion),0,0,"L");
-			$this->ln(10);	
+			$this->ln(10);
 			$this->Fuente("B",14);
 			$this->Cell($this->ancho,4,utf8_decode($titulo),0,5,"C");
 			$this->ln(5);
@@ -60,12 +66,12 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 			    $this->CuadroCabecera(32,"Fecha del Reporte: ",50,utf8_encode($fecha));
                 $this->ln(5);
             }*/
-			
+
 			if(in_array("Cabecera",get_class_methods($this))){
-				$this->Cabecera();	
+				$this->Cabecera();
 			}
 			$this->ln();
-			
+
 			$this->Cell($this->ancho,0,"",1,1);
 			$this->Ln(0.1);
 		}
@@ -75,7 +81,7 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 			$this->CuadroCabecera(15,"Página:",20,$this->PageNo()." de {nb}");
 		}
         function AltoCelda($a){
-            $this->altocelda=$a;    
+            $this->altocelda=$a;
         }
 		function Fuente($tipo="B",$tam=10,$TipoRelleno=2){
             if($TipoRelleno==3){
@@ -84,7 +90,7 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
             if($TipoRelleno==2){
                 $this->SetFillColor(184,184,184);
             }
-			$this->SetFont("Arial",$tipo,$tam);	
+			$this->SetFont("Arial",$tipo,$tam);
 		}
 		function CuadroCabecera($txt1Ancho,$txt1,$txt2Ancho,$txt2){
 			$this->Fuente("B");
@@ -94,7 +100,7 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 		}
 		function TituloCabecera($txtAncho,$txt,$tam=10,$borde=1,$align="C"){
 			$this->Fuente("B",$tam);
-			$this->Cell($txtAncho,4,utf8_decode($txt),$borde,0,$align);	
+			$this->Cell($txtAncho,4,utf8_decode($txt),$borde,0,$align);
 		}
 		function CuadroCuerpo($txtAncho,$txt,$relleno=0,$align="L",$borde=0,$tam=9,$tipo=""){
 			if($relleno>=2){
@@ -104,15 +110,15 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 				$this->Fuente($tipo,$tam);
 				$rell=$relleno;
 			}
-    		$this->Cell($txtAncho,$this->altocelda,utf8_decode($txt),$borde,0,$align,$rell);	
+    		$this->Cell($txtAncho,$this->altocelda,utf8_decode($txt),$borde,0,$align,$rell);
 		}
 		function CuadroCuerpoMulti($txtAncho,$txt,$relleno=0,$align="L",$borde=0,$tam=9,$tipo=""){
 			$this->Fuente($tipo,$tam);
-			$this->MultiCell($txtAncho,5,utf8_decode($txt),$borde,$align,$relleno);	
+			$this->MultiCell($txtAncho,5,utf8_decode($txt),$borde,$align,$relleno);
 		}
 		function CuadroCuerpoPersonalizado($txtAncho,$txt,$relleno=0,$align="L",$borde=0,$tipo="",$tam=10){
 			$this->Fuente($tipo,$tam);
-			$this->Cell($txtAncho,5,utf8_decode($txt),$borde,0,$align,$relleno);	
+			$this->Cell($txtAncho,5,utf8_decode($txt),$borde,0,$align,$relleno);
 		}
 		function CuadroCuerpoResaltar($txtAncho,$txt,$relleno=0,$align="L",$borde=0,$resaltar=2){
 			$this->Fuente("");
@@ -122,7 +128,7 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 				case 2:{$this->SetFillColor(190,190,190);}break;
 				case 1:{$this->SetFillColor(210,210,210);}break;
 			}
-			$this->Cell($txtAncho,5,utf8_decode($txt),$borde,0,$align,$relleno);	
+			$this->Cell($txtAncho,5,utf8_decode($txt),$borde,0,$align,$relleno);
 		}
 		function CuadroNombre($txtAncho,$Paterno,$Materno,$Nombres,$Full=0,$relleno){
 			if($Full){
@@ -130,7 +136,7 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 			}else{
 				$Nombre=array_shift(explode(" ",$Nombres));
 				$this->CuadroCuerpo($txtAncho,ucwords($Paterno." ".$Materno." ".$Nombre),$relleno);
-			}		
+			}
 		}
 		function CuadroNombreSeparado($txtAnchoP,$Paterno,$txtAnchoM,$Materno,$txtAnchoN,$Nombres,$Full,$relleno){
 			if($Full){
@@ -146,19 +152,19 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 		}
 		function Linea(){
 			$this->Cell($this->ancho,0,"",1,1);
-			$this->Ln();	
+			$this->Ln();
 		}
 		function Footer()
 		{	global $lema,$idioma,$DatosGenerador;
-			
 
-			
+
+
 			$DatosUsuario=capitalizar($DatosGenerador['TipoUsuario'].", ".$DatosGenerador['Paterno']." ".$DatosGenerador['Materno']." ".$DatosGenerador['Nombres']);
-			
+
 			// Posición: a 1,5 cm del final
 			$this->SetY(-15);
 			// Arial italic 8
-			
+
 			$BordePie=0;
 			$this->Fuente("I",7.5);
 			$this->Cell($this->ancho,0,"",1,1);
@@ -171,25 +177,25 @@ $DatosGenerador=array("Paterno"=>$ul['Paterno'],
 				$DatosReporteGenerado=utf8_decode('Reporte Generado').": ".date('d-m-Y H:i:s')." ".$DatosUsuario;
 				$this->Cell(90,3,$DatosReporteGenerado,$BordePie,0,"L");
 			}
-			
+
 			$this->Fuente("I",8);
 			$this->Cell((round(($this->ancho-50)/2)-$Resto),3,utf8_decode($lema),$BordePie,0,"C");
 			$this->Fuente("I",7);
-			
-			
+
+
 			if($this->CurOrientation=="P" ||$this->OrientacionObligada=="L"){
 				$this->Cell((round(($this->ancho-50)/2)+0),3,utf8_decode("Sistema de Administración de Facturación de Colegios"),$BordePie,0,"R");
 				$this->ln();
 				$this->Cell((round(($this->ancho-50)/2)+50),3,"Usuario: ".$DatosUsuario,$BordePie,0,"L");
 				$this->Cell((round(($this->ancho-50)/2)+00),3,"Desarrollado por Ronald Nina",$BordePie,0,"R");
 			}else{
-				$this->Cell((round(($this->ancho-50)/2)-5),3,utf8_decode("Sistema de Administración de Facturación de Colegios - Desarrollado por Ronald Nina"),$BordePie,0,"R");	
+				$this->Cell((round(($this->ancho-50)/2)-5),3,utf8_decode("Sistema de Administración de Facturación de Colegios - Desarrollado por Ronald Nina"),$BordePie,0,"R");
 			}
-			
+
 			//$this->Cell(60,4,utf8_decode($idioma['ReporteGenerado']).": ".date('d-m-Y H:i:s'),0,0,"R");
-			
+
 			if(in_array("Pie",get_class_methods($this))){
-				$this->Pie();	
+				$this->Pie();
 			}
 		}
 	}
