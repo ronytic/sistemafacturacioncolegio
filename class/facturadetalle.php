@@ -11,5 +11,9 @@ class facturadetalle extends bd{
 		$this->campos=array('*');
 		return $this->getRecords("CodFacturaDetalle=$CodFacturaDetalle and Activo=1");
 	}
+	function mostrarFacturaDetalleCod($CodFactura){
+		$this->campos=array('*');
+		return $this->getRecords("CodFactura=$CodFactura and Activo=1");
+	}
 }
 ?>
