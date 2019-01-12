@@ -16,7 +16,7 @@ $folder="../";
     <!-- Page title -->
     <title><?php echo $titulo?></title>
 
-    <link rel="shortcut icon" type="image/ico" href="../favicon_1.ico" />
+    <link rel="shortcut icon" type="image/ico" href="../favicon.ico" />
 
     <!-- Vendor styles -->
     <link rel="stylesheet" href="<?php echo $folder?>css/core/font-awesome.css" />
