@@ -117,7 +117,7 @@ $lectura=1;
         <tr class="warning">
             <td class="resaltar der" colspan="1">Cambio</td><td><input type="number" name="MontoDevuelto" <?=$lectura?'readonly':''?> class="form-control text-right MontoDevuelto" value="0.00" step="0.01"></td>
         </tr>
-        <tr><td class="centrar" colspan="8"> <a href="./" class="btn btn-info">Cancelar</a>  <input type="submit" class="btn btn-<?=$FechaLimiteEmision<=date("Y-m-d")?'danger':'success'?>" id="Guardar" value="Guardar" <?=$FechaLimiteEmision<=date("Y-m-d")?'disabled':''?>></td></tr>
+        <tr><td class="centrar" colspan="8"> <a href="./" class="btn btn-info">Cancelar</a>  <input type="submit" class="btn btn-<?=$FechaLimiteEmision<=date("Y-m-d")?'danger':'success'?>" id="guardar" value="Guardar" <?=$FechaLimiteEmision<=date("Y-m-d")?'disabled':''?>></td></tr>
     </table>
     </div>
 </form>
