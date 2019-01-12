@@ -35,7 +35,7 @@ require_once("../configuracion.php");
 				<h1>4<span></span>4</h1>
 			</div>
 			<h2>Oops! La Página no se Pudo Encontrar</h2>
-			<p>Lo sentimos, pero la página que estás buscando no existe, se ha eliminado. nombre cambiado o no está disponible temporalmente
+			<p>Lo sentimos, pero la página que estás buscando no existe, se ha eliminado. el nombre ha cambiado o no está disponible temporalmente
 				<br>
 				<b>Contactece con el Administrador: Ronald Nina Cel: 591-73230568 </b>
 			</p>
