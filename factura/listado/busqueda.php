@@ -27,18 +27,10 @@ $TotalBs=0;
 $Cancelado=0;
 $MontoDevuelto=0;
 foreach($fact as $f){$i++;
-    $datos[$i]['codfactura']=$f['codfactura'];
-    $datos[$i]['FechaFactura']=date("d/m/Y",strtotime($f['FechaFactura']));
-    $datos[$i]['nombre']=$f['nombre'];
-    $datos[$i]['Nit']=$f['Nit'];
-    $datos[$i]['total']=$f['total'];
-    $datos[$i]['pagado']=$f['pagado'];
-    $datos[$i]['devolucion']=$f['devolucion'];
-    $datos[$i]['NFactura']=$f['NFactura'];
-    $datos[$i]['Estado']=$f['Estado'];
-    $TotalBs+=$f['TotalBs'];
-    $Cancelado+=$f['Cancelado'];
-    $MontoDevuelto+=$f['MontoDevuelto'];
+
+    $TotalBs+=$f['Estado']=="Anulado"?0:$f['TotalBs'];
+    $Cancelado+=$f['Estado']=="Anulado"?0:$f['Cancelado'];
+    $MontoDevuelto+=$f['Estado']=="Anulado"?0:$f['MontoDevuelto'];
   ?>
   <tr class="<?php echo $f['Estado']=="Anulado"?'danger"':''?>">
     <td><?php echo $i;?></td>
@@ -53,13 +45,13 @@ foreach($fact as $f){$i++;
         <select name="Estado" class="form-control Estado" rel="<?php echo $f['CodFactura']?>">
                 <option value="Valido" <?php echo $f['Estado']=="Valido"?'selected="selected"':''?>>Valido</option>
                 <option value="Anulado" <?php echo $f['Estado']=="Anulado"?'selected="selected"':''?>>Anulado</option>
-                </select>
-    
+        </select>
+
     </td>
     <td><a href="../../impresion/factura/facturasinqr.php?codfactura=<?php echo $f['CodFactura']?>" target="_blank" class="btn btn-info">Ver Factura</a></td>
   </tr>
   <?php
-    
+
 }
 //listadotabla(array("nombre"=>"Factura A","nit"=>"Nit","fechaventa"=>"Fecha de Factura","NFactura"=>"Nº Factura","total"=>"Total","pagado"=>""),$datos,1,"","","",array("../../impresion/factura/facturaticket.php"=>"Ver Factura"),"","_blank");
 ?>
