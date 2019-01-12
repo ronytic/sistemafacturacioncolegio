@@ -22,7 +22,6 @@ $LlaveDosificacion=$config->mostrarConfig("LlaveDosificacion",1);
 $ActividadEconomica=$config->mostrarConfig("ActividadEconomica",1);
 $LeyendaPiePagina=$config->mostrarConfig("LeyendaPiePagina",1);
 $ImagenFondo=$config->mostrarConfig("ImagenFondo",1);
-//$ImagenFondo=1;
 
 $CodFactura=$_GET['codfactura'];
 $f=$factura->mostrarRegistro($CodFactura);
@@ -31,8 +30,8 @@ $f=array_shift($f);
 $NumeroAutorizacion=$f['NumeroAutorizacion'];
 $FechaLimiteEmision=$f['FechaLimiteEmision'];
 switch($f['Nivel']){
-	case "1":{$Usuario=$idioma["Administrador"];}break;
-	case "2":{$Usuario=$idioma["Direccion"];}break;
+	case "1":{$Usuario="Administrador";}break;	
+	case "2":{$Usuario="Direccion";}break;
 }
 define('FPDF_FONTPATH','../fpdf/font/');
 include_once("../pdfs.php");
@@ -127,7 +126,7 @@ $pdf->SetXY($x+10,$y+44);
 celda(20,'Señor(es):',"B",8);
 celda(45,mayuscula($NombreFactura),"",8);
 celda(10,'Nit'.": ","B",8);
-celda(25,($Nit),"",8);
+celda(30,($Nit),"",8);
 
 celda(10,'Fecha:',"B",8);
 celda(40,strftime("%d de %B de %Y",strtotime($f['FechaFactura'])),"",8);
@@ -203,7 +202,7 @@ $pdf->SetXY($x+10,$y+44);
 celda(20,'Señor(es):',"B",8);
 celda(45,mayuscula($NombreFactura),"",8);
 celda(10,'Nit'.": ","B",8);
-celda(25,($Nit),"",8);
+celda(30,($Nit),"",8);
 
 celda(10,'Fecha:',"B",8);
 celda(40,strftime("%d de %B de %Y",strtotime($f['FechaFactura'])),"",8);
