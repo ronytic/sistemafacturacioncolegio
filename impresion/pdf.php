@@ -40,7 +40,7 @@ $DatosGenerador=array("TipoUsuario"=>$TipoUsuario,
         var $altocelda=5;
 		function Header(){
 			global $idioma,$FechaReporte;
-			$this->SetTitle(utf8_decode("Sistema de Administración de Facturación de Colegios"),true);
+			$this->SetTitle(("Sistema de Administración de Facturación de Colegios"),true);
 			$this->SetAuthor(utf8_decode("SSistema de Administración de Facturación de Colegios Desarrollado por Ronald Nina Layme. Cel: 73230568 - www.facebook.com/ronaldnina"),true);
 			$this->SetSubject(utf8_decode("Sistema de Administración de Facturación de Colegios Desarrollado por Ronald Nina Layme. Cel: 73230568 - www.facebook.com/ronaldnina"),true);
 			$this->SetCreator(utf8_decode("Sistema de Administración de Facturación de Colegios Desarrollado por Ronald Nina Layme. Cel: 73230568 - www.facebook.com/ronaldnina"),true);
