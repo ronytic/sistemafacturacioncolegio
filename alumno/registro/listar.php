@@ -5,6 +5,6 @@ $folder="../../";
 
 $columna1=4;
 $subtitulo3="Datos Estadísticos";
-$archivodestinoalumno="alumno/registro/datos.php";
+$archivodestinoalumno="alumno/registro/dato.php";
 require_once("../../listar/listarcursoalumno.php");
 ?>
