@@ -1,6 +1,8 @@
 <?php
 require_once("../../login/check.php");
-
+if(!isset($_POST)){
+  exit();
+}
 /*echo "<pre>";
 print_r($_POST);
 echo "</pre>";*/
@@ -30,6 +32,27 @@ $RazonSocialEmisor=$config->mostrarConfig("NombreEmpresa",1);
 $LeyendaPiePagina=$config->mostrarConfig("LeyendaPiePagina",1);
 $LeyendaPiePagina2=$config->mostrarConfig("LeyendaPiePagina2",1);
 $ImagenFondo=$config->mostrarConfig("ImagenFondo",1);
+
+
+include_once("../../class/factura.php");
+$factura=new factura();
+
+/*Obtenemos Nuevo Numero de Factura para Verificar*/
+$f=$factura->ObtenerNFactura($NumeroAutorizacion);
+$f=array_shift($f);
+$NFactura=$f['NFacturaActual'];
+if($NFactura==""){$NFactura=1;}
+
+
+$f=$factura->ObtenerNReferencia();
+$f=array_shift($f);
+$NReferencia=$f['NReferencia'];
+if($NReferencia==""){$NReferencia=1;}
+
+//echo $NFactura;
+
+/*Finalizamos la Obtención del Numero de Factura*/
+
 
 $FechaCodigo=date("Ymd",strtotime($FechaFactura));
 $TotalBsCodigo=round(str_replace(',', '.', $TotalBs), 0);
@@ -67,17 +90,21 @@ $valores=array(
 "LeyendaPiePagina"=>"'$LeyendaPiePagina'",
 "LeyendaPiePagina2"=>"'$LeyendaPiePagina2'",
 "ImagenFondo"=>"'$ImagenFondo'",
-    
+
 );
 
-    
-include_once("../../class/factura.php");
-$factura=new factura();
+/*echo "<pre>";
+print_r($valores);
+echo "</pre>";
+
+exit();*/
+
+
 $factura->insertarRegistro($valores);
-    
+
 $CodFactura=$factura->ultimo();
 //echo $CodFactura;
-    
+
 
 include_once("../../class/facturadetalle.php");
 $facturadetalle=new facturadetalle();
@@ -105,13 +132,13 @@ foreach($a as $f){
         "Total"=>"'$Total'",
         "Tipo"=>"'General'",
     );
-    
+
     /*echo "<pre>";
     print_r($valordet);
     echo "</pre>";*/
     $facturadetalle->insertarRegistro($valordet);
-} 
-    
+}
+
 /*echo "<pre>";
 print_r($valores);
 echo "</pre>";
