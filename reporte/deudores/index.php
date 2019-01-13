@@ -1,6 +1,6 @@
 <?php
 require_once("../../login/check.php");
-$titulo="Reporte de Facturas";
+$titulo="Reporte de Deudores";
 $folder="../../";
 include_once($folder."cabecerahtml.php");
 ?>
@@ -12,12 +12,12 @@ include_once($folder."cabecerahtml.php");
 
         Curso<?php include_once("../../listar/listadosolocurso.php")?>
         <input type="submit" value="Revisar" class="btn btn-info">
-        </div> 
-            
-            
+        </div>
+
+
 
     </div>
-    
+
     </form>
 </div>
 
