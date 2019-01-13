@@ -1,4 +1,27 @@
 <?php
+function carnet($inputname,$selectname,$valinput,$valselect){
+	?>
+	<div class="input-group col-lg-12">
+			<input name="<?php echo $inputname?>" type="text" id="<?php echo $inputname?>"  value="<?php echo $valinput;?>" class="form-control col-lg-6"/>
+			<!--<span class="input-group-btn">
+				<input name="<?php echo $inputname?>" type="text" id="<?php echo $inputname?>"  value="<?php echo $valinput;?>" class="form-control col-lg-6"/>
+			</span>-->
+			<span class="input-group-btn">
+				<select name="<?php echo $selectname?>" class="form-control">
+					<option value="LP" <?php if($valselect=="LP")echo'selected="selected"';?>>LP</option>
+					<option value="CH" <?php if($valselect=="CH")echo'selected="selected"';?>>CH</option>
+					<option value="SC" <?php if($valselect=="SC")echo'selected="selected"';?>>SC</option>
+					<option value="PA" <?php if($valselect=="PA")echo'selected="selected"';?>>PA</option>
+					<option value="BN" <?php if($valselect=="BN")echo'selected="selected"';?>>BN</option>
+					<option value="PT" <?php if($valselect=="PT")echo'selected="selected"';?>>PT</option>
+					<option value="CB" <?php if($valselect=="CB")echo'selected="selected"';?>>CB</option>
+					<option value="TJ" <?php if($valselect=="TJ")echo'selected="selected"';?>>TJ</option>
+					<option value="OR" <?php if($valselect=="OR")echo'selected="selected"';?>>OR</option>
+				</select>
+			</span>
+		</div>
+		<?php
+}
 function campo($nombre,$tipo="text",$valores="",$clase="",$required=0,$placeholder="",$autofocus=0,$adicional=array(),$valorseleccion=NULL){
 	global $idioma;
 	if($tipo=="" && empty($tipo)){$tipo="text";}
