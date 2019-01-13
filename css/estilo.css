@@ -34,5 +34,47 @@
     display: block;
 }
 textarea{
-	resize:none;	
+	resize:none;
 }
+
+/*Listado de Curso*/
+.radiolistadocurso{
+  display: none;
+}
+.radiolistadocurso+label{
+  background-color: #34495e;
+    border-color: #34495e;
+    color: #FFFFFF;
+    border-radius: 3px;
+    padding: 6px 12px;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+.radiolistadocurso:checked+label{
+  color: #fff;
+  background-color: #4ea5e0;
+  border-color: #4ea5e0;
+
+}
+/*Fin de Curso*/
+/*Listado de Alumno*/
+.radiolistadoalumno{
+  display: none;
+}
+.radiolistadoalumno+label{
+  background-color: #e7ecf0;
+    border-color: #34495e;
+    color: ##6a6c6f;
+    border-radius: 3px;
+    padding: 6px 12px;
+    touch-action: manipulation;
+    cursor: pointer;
+    display: block;
+}
+.radiolistadoalumno:checked+label{
+  color: #fff;
+  background-color: #34495e;
+  border-color: #4ea5e0;
+
+}
+/*Fin de Alumno*/

@@ -15,13 +15,26 @@ if(empty($CodCurso)){
 	$CodCurso=$al['CodCurso'];
 }
 $curso=new curso;
+if(!isset($listacurso)){
 ?>
-            <select class="form-control" id="selectcurso" name="CodCurso" data-placeholder="Seleccione un Curso" >
-                <option value="">Seleccionar</option>
-            <?php
-			$i=0;
-            foreach($curso->mostrar() as $cu){$i++;
-                ?><option value="<?php echo $cu['CodCurso'];?>" <?php //echo $i==1 || $CodCurso==$cu['CodCurso']?'selected="selected"':'';?> rel="<?php echo $cu['caArea']?>"><?php echo eliminarEspaciosDobles($cu['Nombre']);?></option><?php
-            }
-            ?>
-            </select>
+  <select class="form-control" id="selectcurso" name="CodCurso" data-placeholder="Seleccione un Curso" >
+      <option value="">Seleccionar</option>
+  <?php
+$i=0;
+  foreach($curso->mostrar() as $cu){$i++;
+      ?><option value="<?php echo $cu['CodCurso'];?>" <?php //echo $i==1 || $CodCurso==$cu['CodCurso']?'selected="selected"':'';?> rel=""><?php echo eliminarEspaciosDobles($cu['Nombre']);?></option>
+			<?php
+  }
+  ?>
+  </select>
+<?php
+}else{
+	$i=0;
+	foreach($curso->mostrar() as $cu){$i++;
+	?>
+
+	<input type="radio" name="cur" value="<?php echo $cu['CodCurso']?>" id="c<?php echo $cu['CodCurso']?>" class="radiolistadocurso"><label for="c<?php echo $cu['CodCurso']?>"><?php echo $cu['Nombre']?></label>
+	<?php
+	}
+}
+ ?>
