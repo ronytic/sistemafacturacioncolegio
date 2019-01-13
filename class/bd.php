@@ -106,6 +106,10 @@ class bd{
 //		mysql_query ($query);
 	//	return $this->validateOperation ();
 	}
+	public function escapar($cadena){
+		$dato=mysqli_real_escape_string($this->l,$cadena);
+		return $dato;
+	}
 	public function insertRow ($data,$sw=0){
 		////
 		$key=array();
