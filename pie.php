@@ -1,12 +1,12 @@
                </div>
             </div>
         </div>
-    </div>    
+    </div>
    <!----------------->
    </div>
 </div>
 
-    
+
 
     <!-- Footer-->
     <footer class="footer">
@@ -35,6 +35,7 @@
 <script src="<?php echo $folder?>js/core/cargadortotal.js"></script>
 
     <script>
+    var folder="<?php echo $folder?>";
     </script>
 
 </body>
