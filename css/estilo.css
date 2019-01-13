@@ -64,7 +64,7 @@ textarea{
 .radiolistadoalumno+label{
   background-color: #e7ecf0;
     border-color: #34495e;
-    color: ##6a6c6f;
+    color: #s6a6c6f;
     border-radius: 3px;
     padding: 6px 12px;
     touch-action: manipulation;
@@ -78,3 +78,9 @@ textarea{
 
 }
 /*Fin de Alumno*/
+
+.input-group select.form-control {
+
+	width: calc(70px);
+
+}
