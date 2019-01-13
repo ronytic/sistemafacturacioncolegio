@@ -10,7 +10,7 @@ require_once("../configuracion.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-	<title>404 HTML Template by Colorlib</title>
+	<title>Error 404</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
