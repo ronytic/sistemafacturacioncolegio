@@ -11,6 +11,7 @@ if(isset($_GET['CodCurso'])){
 	$CodCurso=$_GET['CodCurso'];
 }
 if(empty($CodCurso)){
+	if(isset($al))
 	$CodCurso=$al['CodCurso'];
 }
 $curso=new curso;
@@ -35,4 +36,3 @@ $curso=new curso;
 
             </select>
         </div>
-
