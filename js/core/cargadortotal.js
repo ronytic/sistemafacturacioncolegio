@@ -2,7 +2,7 @@ $(document).on("ready",inicio);
 var RedirigirLogin=0;
 
 function inicio(){
-	
+
 	$(document).on('submit','form.formulariobusqueda', function(e) {
 		e.preventDefault(); // prevent native submit
 		var percent=$("#respuestaformulario")
@@ -28,7 +28,7 @@ function inicio(){
 			}
     	})
 		//$('html, body').animate({scrollTop:$("#respuestaformulario").position().top-200},300);
-		 
+
 	});
 	$(document).on("submit",".formularioconfirmacion",function(e){
 		if(!confirm($(this).attr("data-mensaje"))){
@@ -41,7 +41,7 @@ function inicio(){
 		e.stopPropagation();
 		if(confirm("¿Esta seguro que desea Eliminar este Registro?")){
 			$.post(direccion,function(){
-				$("form.formulariobusqueda").submit();	
+				$("form.formulariobusqueda").submit();
 			});
 		}
 		return false;
@@ -59,11 +59,11 @@ function inicio(){
 	//$(window).trigger('resize.stickyTableHeaders');
 	//$("table:not(.inicio)").stickyTableHeaders();
 	/*Fin Gestionar Tabla*/
-	
+
 	//Al INICIO
 	$("textarea[required],input[required][type=text],input[required][type=number],select[required],input[required][type=date],input[required][type=time]").not('.norequerido').after('<i class="ace-icon red icon-warning-sign" title="Obligatorio"></i>');
     /*$("input").click(function(){
-        
+
         $(this).select();
     });*/
 	//$("select").not(".noselect").attr("data-placeholder","Seleccione...").chosen({keyboard:true,width: "100%",no_results_text: "Datos No encontrados"});
@@ -72,32 +72,32 @@ function inicio(){
 	$('ul.r-listado li a').tooltip();
 	$('span[title]').tooltip();
 	$('i[title],a[title]').tooltip({'placement':'bottom'});
-	
+
 	$('div[title]:not(.lateral)').tooltip({'placement':'bottom'});
 	$('div.lateral').tooltip({'placement':'right'});
-	
+
 	$('div.lateral').tooltip({'placement':'right'});
-	
+
 	$('a[data-rel="tooltip"]').tooltip();
 	//FIN de INICIO
-	
+
 	if (typeof configuracion != "undefined"){
-		
+
 		var config = $.extend({}, {autoclose:true,format: "dd-mm-yyyy",todayBtn: "linked"}, configuracion);
-		
+
 	}else{
 		//alert("asd");
 		var config={autoclose:true,format: "dd-mm-yyyy",todayBtn: "linked"};
 	}
 	//$('.hora').timepicker('setTime', '12:48 AM');
-	//$('.fecha').datepicker($.extend({},config)).mask('99-99-9999');	
-	//$('.fechali').datepicker($.extend({startDate:FechaHoy},config)).mask('99-99-9999');	
-	//$('.fechalf').datepicker($.extend({endDate:FechaHoy},config)).mask('99-99-9999');	
+	//$('.fecha').datepicker($.extend({},config)).mask('99-99-9999');
+	//$('.fechali').datepicker($.extend({startDate:FechaHoy},config)).mask('99-99-9999');
+	//$('.fechalf').datepicker($.extend({endDate:FechaHoy},config)).mask('99-99-9999');
 	//$('.FechaRangoIdependiente').datepicker({
     //	todayBtn: "linked"
 	//}).find("input").mask('99-99-9999');
-	
-	
+
+
 	/*$('.FechaRango').daterangepicker({
       ranges: {
          'Hoy': [moment(), moment()],
@@ -111,26 +111,26 @@ function inicio(){
       startDate: moment(),
       endDate: moment()
     });*/
-	
+
 	$(document).ajaxStart(function() {
-      	$("#contenedorcargando").fadeIn('fast');  
+      	$("#contenedorcargando").fadeIn('fast');
     }).ajaxStop(function() {
-	
+
     }).ajaxSuccess(function(event, XMLHttpRequest, ajaxOptions) {
 		//$("select").attr("data-placeholder","Seleccione...").trigger("chosen:updated");
 		$("#contenedorcargando").fadeOut('slow');
 		/*Redirigir por falta de Login*/
 		if(RedirigirLogin){
-			window.location.href=folder;	
+			window.location.href=folder;
 		}
 		/*Fin de Redirigir*/
         //$("input[type=date]").datepicker({changeMonth: true,changeYear: true,yearRange:"c-100:c+10"});
 		//alert("qwe");
-		//$('.fecha').datepicker($.extend({},config)).mask('99-99-9999');	
-		//$('.fechali').datepicker($.extend({startDate:FechaHoy},config)).mask('99-99-9999');	
-		//$('.fechalf').datepicker($.extend({endDate:FechaHoy},config)).mask('99-99-9999');	
+		//$('.fecha').datepicker($.extend({},config)).mask('99-99-9999');
+		//$('.fechali').datepicker($.extend({startDate:FechaHoy},config)).mask('99-99-9999');
+		//$('.fechalf').datepicker($.extend({endDate:FechaHoy},config)).mask('99-99-9999');
 		//$('.fecha').datepicker({autoclose:true})
-		
+
 
 		/*Gestionar Tabla*/
 		//$(window).trigger('resize.stickyTableHeaders');
@@ -139,28 +139,28 @@ function inicio(){
 		//$("table").stickyTableHeaders();
 		//$(window).trigger('resize.stickyTableHeaders');
 		//$("table.inicio").stickyTableHeaders('destroy');
-		
+
 		/*Fin Gestionar Tabla*/
-		
+
 		$('span[title]').tooltip();
-		
+
 		$('body').tooltip({selector: '[title]','placement':'bottom'});
-		
+
 		$('input[title]').tooltip({'placement':'bottom'});
 		$('div[title]:not(.lateral)').tooltip({'placement':'bottom'});
 		$('div.lateral').tooltip({'placement':'right'});
 		$('a[data-rel="tooltip"]').tooltip();
-		
+
 		//pestañas horizontales corregir
 		$('.tabbable a').click(function (e) {
 			e.preventDefault();
 			$(this).tab('show');
 			$(window).resize();
-		})	
+		})
 
     });
-	
-	
+
+
 	$(document).on('click','.enlacepost',function(e){
 		e.preventDefault();
 		var dest=$(this).attr("href")!=""?$(this).attr("href"):$(this).attr("data-destino");
@@ -176,9 +176,9 @@ function inicio(){
 		}
 	});
 	$(document).on('click','#actualizarventana',function(e){
-		location.reload();	
+		location.reload();
 	});
-	
+
 
 	/*Exportar Excel*/
 	$(document).on('click','#exportarexcel',function(e){
@@ -228,14 +228,14 @@ function inicio(){
 	$(window).scroll(function(e) {
         //alert($(this).scrollTop());
     });*/
-	
+
 	/*Notificaciones*/
 	$('#noti').click(function(e){e.preventDefault();}).popover({title:$("#noti").attr('data-titulo')+$('#noticerrar').html(),html : true,placement:'bottom',content:$('#cuerponotificacion').html()})
 	$(document).on("click",'#cerrarnoti',function(e){
 		e.preventDefault();
 		$('#noti').popover('hide');
-	}); 
-    
+	});
+
     $(document).on("click","#exportarexcel1",function(e){
         e.preventDefault();
        fnExcelReport('tablaexportar');
@@ -248,8 +248,8 @@ function fnExcelReport(id)
     var textRange; var j=0;
     tab = document.getElementById(id); // id of table
 
-    for(j = 0 ; j < tab.rows.length ; j++) 
-    {     
+    for(j = 0 ; j < tab.rows.length ; j++)
+    {
         tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
         //tab_text=tab_text+"</tr>";
     }
@@ -260,18 +260,18 @@ function fnExcelReport(id)
     tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
 
     var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE "); 
+    var msie = ua.indexOf("MSIE ");
 
     if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
     {
         txtArea1.document.open("txt/html","replace");
         txtArea1.document.write(tab_text);
         txtArea1.document.close();
-        txtArea1.focus(); 
+        txtArea1.focus();
         sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
-    }  
+    }
     else                 //other browser not tested on IE 11
-        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
 
     return (sa);
 }
@@ -293,9 +293,9 @@ jQuery.fn.reset = function () {
 }
 /*
 function enter2tab(e) {
-     
+
    if (e.keyCode == 13) {
-       
+
        cb = parseInt($(this).attr('tabindex'));
 
        if ($(':input[tabindex=\'' + (cb + 1) + '\']') != null) {
