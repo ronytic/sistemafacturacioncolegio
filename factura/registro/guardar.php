@@ -65,6 +65,9 @@ $datos=generarCodigoControl($NumeroAutorizacion,$NFactura,$Nit,$FechaCodigo,$Tot
 $TxtCodigoDeControl=$datos['Codigo1'];
 $TxtCodigoDeControl2=$datos['Codigo2'];
 
+
+
+$LlaveDosificacion=$factura->escapar($LlaveDosificacion);
 $valores=array(
 "FechaFactura"=>"'$FechaFactura'",
 "NFactura"=>"'$NFactura'",
@@ -93,11 +96,11 @@ $valores=array(
 
 );
 
-/*echo "<pre>";
+echo "<pre>";
 print_r($valores);
 echo "</pre>";
 
-exit();*/
+/*exit();*/
 
 
 $factura->insertarRegistro($valores);
@@ -143,5 +146,5 @@ foreach($a as $f){
 print_r($valores);
 echo "</pre>";
 */
-header("Location:../ver/ver.php?Cod=".$CodFactura);
+//header("Location:../ver/ver.php?Cod=".$CodFactura);
 ?>
