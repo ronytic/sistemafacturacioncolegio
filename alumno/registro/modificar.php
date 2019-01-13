@@ -44,23 +44,7 @@ $columna1=12;
                 <tr><td class="der">Lugar de Nacimiento</td><td>::</td><td><input type="text" name="LugarNac" placeholder="La Paz" value="<?php echo $al['LugarNac'];?>" class="form-control"/></td></tr>
                 <tr><td class="der">Fecha de Nacimiento</td><td>::</td><td><input type="date" name="FechaNac" id="FechaNac" size="10"  value="<?php echo date("Y-m-d",strtotime($al['FechaNac']));?>" autocomplete="off" class="form-control"/></td></tr>
                 <tr><td class="der">Cedula de Identidad</td><td>::</td><td>
-									<div class="input-group">
-
-											<input name="Ci" type="text" id="Ci"  value="<?php echo $al['Ci'];?>" class="form-control"/>
-											<span class="input-group-btn">
-												<select name="CiExt" class="form-control">
-			                		<option value="LP" <?php if($al['CiExt']=="LP")echo'selected="selected"';?>>LP</option>
-			                    <option value="CH" <?php if($al['CiExt']=="CH")echo'selected="selected"';?>>CH</option>
-			                    <option value="SC" <?php if($al['CiExt']=="SC")echo'selected="selected"';?>>SC</option>
-			                    <option value="PA" <?php if($al['CiExt']=="PA")echo'selected="selected"';?>>PA</option>
-			                    <option value="BN" <?php if($al['CiExt']=="BN")echo'selected="selected"';?>>BN</option>
-			                    <option value="OR" <?php if($al['CiExt']=="OR")echo'selected="selected"';?>>OR</option>
-			                    <option value="PT" <?php if($al['CiExt']=="PT")echo'selected="selected"';?>>PT</option>
-			                    <option value="CQ" <?php if($al['CiExt']=="CB")echo'selected="selected"';?>>CB</option>
-			                    <option value="TR" <?php if($al['CiExt']=="TJ")echo'selected="selected"';?>>TJ</option>
-												</select>
-											</span>
-										</div>
+										<?php carnet("Ci","CiExt",$al['Ci'],$al['CiExt']);?>
 									</td></tr>
                 <tr><td class="der">Zona</td><td>::</td><td><input name="Zona" type="text"  id="Zona" size="30" value="<?php echo $al['Zona'];?>" class="form-control"/></td></tr>
                 <tr><td class="der">Calle</td><td>::</td><td><input name="Calle" type="text"  id="Zona" size="30" value="<?php echo $al['Calle'];?>" class="form-control"/></td></tr>
@@ -94,41 +78,13 @@ $columna1=12;
         	<table>
             	<tr><td class="der">Apellidos del Padre</td><td>::</td><td><input type="text" name="ApellidosPadre" size="50" value="<?php echo $al['ApellidosPadre'];?>" class="form-control"/></td></tr>
             	<tr><td class="der">Nombre del Padre</td><td>::</td><td><input type="text" name="NombrePadre" size="50" value="<?php echo $al['NombrePadre'];?>" class="form-control"/></td></tr>
-                <tr><td class="der">C.I. Padre</td><td>::</td><td><div class="input-group"><input type="text" name="CiPadre" id="CiPadre"  value="<?php echo $al['CiPadre'];?>" class="form-control"/>
-									<span class="input-group-btn">
-									<select name="CiExtP" class="form-control">
-                		<option value="LP" <?php if($al['CiExtP']=="LP")echo'selected="selected"';?>>LP</option>
-                    <option value="CH" <?php if($al['CiExtP']=="CH")echo'selected="selected"';?>>CH</option>
-                    <option value="SC" <?php if($al['CiExtP']=="SC")echo'selected="selected"';?>>SC</option>
-                    <option value="PA" <?php if($al['CiExtP']=="PA")echo'selected="selected"';?>>PA</option>
-                    <option value="BN" <?php if($al['CiExtP']=="BN")echo'selected="selected"';?>>BN</option>
-                    <option value="OR" <?php if($al['CiExtP']=="OR")echo'selected="selected"';?>>OR</option>
-                    <option value="PT" <?php if($al['CiExtP']=="PT")echo'selected="selected"';?>>PT</option>
-                    <option value="CQ" <?php if($al['CiExtP']=="CB")echo'selected="selected"';?>>CB</option>
-                    <option value="TR" <?php if($al['CiExtP']=="TJ")echo'selected="selected"';?>>TJ</option></select>
-									</span>
-								</div>
-									</td></tr>
+                <tr><td class="der">C.I. Padre</td><td>::</td><td><?php carnet("CiPadre","CiExtP",$al['CiPadre'],$al['CiExtP']);?></td></tr>
                 <tr><td class="der">Ocupación del Padre</td><td>::</td><td><input type="text" name="OcupPadre" size="30"  value="<?php echo $al['OcupPadre'];?>" class="form-control"/></td></tr>
                 <tr><td class="der">Celular Padre</td><td>::</td><td><input type="text" name="CelularP" size="30" value="<?php echo $al['CelularP'];?>" class="form-control"/></td></tr>
 
                 <tr><td class="der">Apellidos de la Madre</td><td>::</td><td><input type="text" name="ApellidosMadre" size="50" value="<?php echo $al['ApellidosMadre'];?>" class="form-control"/></td></tr>
                	<tr><td class="der">Nombre de la Madre</td><td>::</td><td><input type="text" name="NombreMadre" size="50"  value="<?php echo $al['NombreMadre'];?>" class="form-control"/></td></tr>
-                <tr><td class="der">C.I.Madre</td><td>::</td><td><div class="input-group"><input type="text" name="CiMadre" id="CiMadre" value="<?php echo $al['CiMadre'];?>" class="form-control"/>
-									<span class="input-group-btn">
-									<select name="CiExtM" class="form-control">
-                		<option value="LP" <?php if($al['CiExtM']=="LP")echo'selected="selected"';?>>LP</option>
-                    <option value="CH" <?php if($al['CiExtM']=="CH")echo'selected="selected"';?>>CH</option>
-                    <option value="SC" <?php if($al['CiExtM']=="SC")echo'selected="selected"';?>>SC</option>
-                    <option value="PA" <?php if($al['CiExtM']=="PA")echo'selected="selected"';?>>PA</option>
-                    <option value="BN" <?php if($al['CiExtM']=="BN")echo'selected="selected"';?>>BN</option>
-                    <option value="OR" <?php if($al['CiExtM']=="OR")echo'selected="selected"';?>>OR</option>
-                    <option value="PT" <?php if($al['CiExtM']=="PT")echo'selected="selected"';?>>PT</option>
-                    <option value="CQ" <?php if($al['CiExtM']=="CB")echo'selected="selected"';?>>CB</option>
-                    <option value="TR" <?php if($al['CiExtM']=="TJ")echo'selected="selected"';?>>TJ</option></select>
-									</span>
-								</div>
-									</td></tr>
+                <tr><td class="der">C.I.Madre</td><td>::</td><td><?php carnet("CiMadre","CiExtM",$al['CiMadre'],$al['CiExtM']);?></td></tr>
 
                  <tr><td class="der">Ocupación de la Madre</td><td>::</td><td><input type="text" name="OcupMadre" size="30" value="<?php echo $al['OcupMadre'];?>" class="form-control"/></td></tr>
                  <tr><td class="der">Celular Madre</td><td>::</td><td><input name="CelularM" type="text" id="CelularM" size="30" value="<?php echo $al['CelularM'];?>" class="form-control"/></td></tr>
