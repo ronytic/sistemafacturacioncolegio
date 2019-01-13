@@ -11,11 +11,11 @@ $NombreUsuario=$us2['Nombres'];
 $PaternoUsuario=$us2['Paterno'];
 $MaternoUsuario=$us2['Materno'];
 switch($Nivel){
-    case 1:{$NivelUsuario="Administrador";}break;   
-    case 2:{$NivelUsuario="Gerente";}break;   
-    case 3:{$NivelUsuario="Administrador";}break;   
-    case 4:{$NivelUsuario="Secretaria";}break;      
-    case 4:{$NivelUsuario="Vendedor";}break;    
+    case 1:{$NivelUsuario="Administrador";}break;
+    case 2:{$NivelUsuario="Gerente";}break;
+    case 3:{$NivelUsuario="Administrador";}break;
+    case 4:{$NivelUsuario="Secretaria";}break;
+    case 5:{$NivelUsuario="Vendedor";}break;
 }
 
 $Titulo=$config->mostrarConfig("Titulo",1);
@@ -36,7 +36,7 @@ $submenu=new submenu;
     <meta name="keywords" content="<?php php_start();?>" />
     <!-- Page title -->
     <title><?php echo $Titulo?></title>
-    
+
     <link rel="shortcut icon" type="image/ico" href="<?php echo $folder?>favicon.ico" />
 
     <!-- Vendor styles -->
@@ -49,4 +49,5 @@ $submenu=new submenu;
     <link rel="stylesheet" href="<?php echo $folder?>css/core/pe-icon-7-stroke.css" />
     <link rel="stylesheet" href="<?php echo $folder?>css/core/helper.css" />
     <link rel="stylesheet" href="<?php echo $folder?>css/core/style.css?<?php echo rand(2,10)?>">
+    <link rel="stylesheet" href="<?php echo $folder?>css/estilo.css">
     <script src="<?php echo $folder?>js/core/jquery.min.js"></script>
