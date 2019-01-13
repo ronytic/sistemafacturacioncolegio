@@ -47,18 +47,18 @@ $lectura=1;
 </style>
 <?php include_once($folder."cabecera.php");?>
 <div class="col-lg-12">
-    
+
 <form action="guardar.php" method="post" id="formulario" autocomplete="false">
     <div class="table-responsive">
         <span class="badge badge-<?=$FechaLimiteEmision<=date("Y-m-d")?'danger':'success'?>">Fecha Límite de Emisión: <strong><?php echo fecha2Str($FechaLimiteEmision)?></strong></span>
     <span class="badge badge-primary">Número de Autorización: <strong><?php echo ($NumeroAutorizacion)?></strong></span>
-        
+
     <table class="table table-bordered inicio">
         <thead>
             <tr>
                 <th>Fecha<br><input type="date" class="fecha form-control" name="FechaFactura" value="<?php echo fecha2Str("",0)?>" required <?=$lectura?'readonly':''?>></th>
 
-                <th>Nº Factura<br><input type="number" class="derecha NFactura form-control" name="NFactura" value="<?php echo $_GET['f']==1?$_GET['NFactura']:$NFactura?>" required <?=$lectura?'readonly':''?>></th>
+                <th>Nº Factura<br><input type="number" class="derecha NFactura form-control" name="NFactura" value="<?php echo isset($_GET['f'])?$_GET['NFactura']:$NFactura?>" required <?=$lectura?'readonly':''?>></th>
 
                 <th>Nº Referencia<br><input type="text" class="derecha span12 form-control" name="NReferencia" readonly value="<?php echo $NReferencia?>" required ></th>
             </tr>
@@ -69,7 +69,7 @@ $lectura=1;
                     <div class="input-group">
                       <input type="text" id=""  name="FacturaAlumno" class="form-control " readonly>
                         <span class="input-group-btn">
-                           <a class="btn btn-info buscar " rel="BusquedaNit" href="#"><i class="glyphicon glyphicon-search"></i></a> 
+                           <a class="btn btn-info buscar " rel="BusquedaNit" href="#"><i class="glyphicon glyphicon-search"></i></a>
                         </span>
                     </div>
 
@@ -101,10 +101,10 @@ $lectura=1;
                 <br>
                 <textarea name="Observacion" class="form-control pull-right" rows="2" placeholder="Observacion"></textarea><br>
 
-            
+
             <br>
-            
-           
+
+
 
             </td>
         </tr>
@@ -121,21 +121,21 @@ $lectura=1;
     </table>
     </div>
 </form>
-    
+
 </div>
 
 
 <div class="modal bs-example-modal-"><!-- modal hide fade-->
     <div class="modal-dialog modal-" role="document">
- <div class="modal-content"> 
+ <div class="modal-content">
         <div class="modal-header">
-       
+
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             Seleccionar Alumno
         </div>
         <div class="modal-body">
         <?php include_once("../../listar/listadodecurso.php");?>
-         
+
         </div>
         <div class="modal-footer">
         <a href="#" class="btn btn-default" id="cerrar" data-dismiss="modal">Cerrar</a>
