@@ -212,28 +212,33 @@ escribe(185,285,"x",10);
 
 	escribe(44,19,$a['CiPadre'],10,"L");
 	escribe(104,19,$a['CiExtP'],10,"L");
-	escribe(44,23,(explode(" ",$a['ApellidosPadre']))[0],10,"L");
-	escribe(44,28,(explode(" ",$a['ApellidosPadre']))[1],10,"L");
+	@escribe(44,23,(explode(" ",$a['ApellidosPadre']))[0],10,"L");
+	@escribe(44,28,(explode(" ",$a['ApellidosPadre']))[1],10,"L");
 	escribe(44,33,$a['NombrePadre'],10,"L");
 	escribe(44,38,$al['IdiomaP'],10,"L");
 	escribe(44,42,$a['OcupPadre'],10,"L");
 	escribe(44,47,$al['InstruccionP'],10,"L");
+	if($al['FechaNacP']!="0000-00-00"){
+
 	escribe(44,52,date("d",strtotime($al['FechaNacP'])),10,"L");
 	escribe(56,52,date("m",strtotime($al['FechaNacP'])),10,"L");
 	escribe(70,52,date("Y",strtotime($al['FechaNacP'])),10,"L");
+	}
 
 
 	escribe(150,19,$a['CiMadre'],10,"L");
 	escribe(201,19,$a['CiExtM'],10,"L");
-	escribe(150,23,(explode(" ",$a['ApellidosMadre']))[0],10,"L");
-	escribe(150,28,(explode(" ",$a['ApellidosMadre']))[1],10,"L");
+	@escribe(150,23,(explode(" ",$a['ApellidosMadre']))[0],10,"L");
+	@escribe(150,28,(explode(" ",$a['ApellidosMadre']))[1],10,"L");
 	escribe(150,33,$a['NombreMadre'],10,"L");
 	escribe(150,38,$al['IdiomaM'],10,"L");
 	escribe(150,42,$a['OcupMadre'],10,"L");
 	escribe(150,47,$al['InstruccionM'],10,"L");
+	if($al['FechaNacM']!="0000-00-00"){
 	escribe(150,52,date("d",strtotime($al['FechaNacM'])),10,"L");
 	escribe(162,52,date("m",strtotime($al['FechaNacM'])),10,"L");
 	escribe(174,52,date("Y",strtotime($al['FechaNacM'])),10,"L");
+	}
 
 	escribe(44,66,$al['CiTutor'],10,"L");
 	escribe(104,66,$al['CiExtT'],10,"L");
@@ -243,10 +248,12 @@ escribe(185,285,"x",10);
 	escribe(44,86,$al['IdiomaP'],10,"L");
 	escribe(44,91,$al['OcupacionT'],10,"L");
 	escribe(44,95,$al['InstruccionT'],10,"L");
+
+	if($al['FechaNacT']!="0000-00-00"){
 	escribe(44,109,date("d",strtotime($al['FechaNacT'])),10,"L");
 	escribe(56,109,date("m",strtotime($al['FechaNacT'])),10,"L");
 	escribe(70,109,date("Y",strtotime($al['FechaNacT'])),10,"L");
-
+	}
 
 	escribe(44,102,$al['ParentescoT'],10,"L");
 
