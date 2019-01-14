@@ -1,12 +1,23 @@
 $(document).ready(function() {
   $(".radiolistadocurso").click(function(event) {
     var CodCurso=$(this).val();
-    $.post(folder+"listar/alumnos.php",{'CodCurso':CodCurso,"listaalumno":1},function(data){
+    var CodAlumno=$(this).attr('rel');
+    $.post(folder+"listar/alumnos.php",{'CodCurso':CodCurso,"listaalumno":1,'CodAlumno':CodAlumno},function(data){
       $("#respuestacurso").html(data);
-      $(".radiolistadoalumno:eq(0)").click();
+
+      if($(".radiolistadoalumno:checked").val()==undefined){
+        $(".radiolistadoalumno:eq(0)").click();
+      }else{
+        $(".radiolistadoalumno:checked").click();
+      }
+
     });
   });
+if($(".radiolistadocurso:checked").val()==undefined){
   $(".radiolistadocurso:eq(0)").click();
+}else{
+  $(".radiolistadocurso:checked").click();
+}
 
 
   $(document).on("click",".radiolistadoalumno",function(event) {
