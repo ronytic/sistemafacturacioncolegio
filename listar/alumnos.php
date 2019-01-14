@@ -23,7 +23,7 @@ if (!isset($_POST['listaalumno'])) {
 }else{
 	foreach($alumno->mostrarDatosAlumnos($CodCurso,0) as $al){
 	?>
-	<input type="radio" name="al" value="<?php echo $al['CodAlumno']?>" id="a<?php echo $al['CodAlumno']?>" class="radiolistadoalumno"><label for="a<?php echo $al['CodAlumno']?>"> <?php echo ucwords(eliminarEspaciosDobles($al['Paterno']));?> <?php echo ucwords(eliminarEspaciosDobles($al['Materno']));?> <?php echo ucwords(eliminarEspaciosDobles($al['Nombres']));?></label>
+	<input type="radio" name="al" value="<?php echo $al['CodAlumno']?>" id="a<?php echo $al['CodAlumno']?>" class="radiolistadoalumno" <?php echo $al['CodAlumno']==$_POST['CodAlumno']?'checked="checked"':'';?>><label for="a<?php echo $al['CodAlumno']?>"> <?php echo ucwords(eliminarEspaciosDobles($al['Paterno']));?> <?php echo ucwords(eliminarEspaciosDobles($al['Materno']));?> <?php echo ucwords(eliminarEspaciosDobles($al['Nombres']));?></label>
 	<?php
 	}
 }
