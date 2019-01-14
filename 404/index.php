@@ -16,7 +16,7 @@ require_once("../configuracion.php");
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="<?php echo $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST']."/"?><?php echo $directory?>404/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo (!empty($_SERVER['REQUEST_SCHEME'])?$_SERVER['REQUEST_SCHEME']:'http')."://".$_SERVER['HTTP_HOST']."/"?><?php echo $directory?>404/css/style.css" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +39,7 @@ require_once("../configuracion.php");
 				<br>
 				<b>Contactece con el Administrador: Ronald Nina Cel: 591-73230568 </b>
 			</p>
-			<a href="<?php echo $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST']."/"?><?php echo $directory?>">Volver al Inicio</a>
+			<a href="<?php echo (!empty($_SERVER['REQUEST_SCHEME'])?$_SERVER['REQUEST_SCHEME']:'http')."://".$_SERVER['HTTP_HOST']."/"?><?php echo $directory?>">Volver al Inicio</a>
 
 		</div>
 	</div>
