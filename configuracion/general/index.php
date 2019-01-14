@@ -6,6 +6,7 @@ $titulo="Configuración General del Sistema";
 include_once("../../class/config.php");
 $config=new config;
 $Titulo=$config->mostrarConfig("Titulo",1);
+$Sie=$config->mostrarConfig("Sie",1);
 $Lema=$config->mostrarConfig("Lema",1);
 $NitEmisor=$config->mostrarConfig("NitEmisor",1);
 $ActividadEconomica=$config->mostrarConfig("ActividadEconomica",1);
@@ -27,7 +28,7 @@ include_once("../../cabecerahtml.php");
 <?php include_once("../../cabecera.php");?>
 <div class="col-lg-12">
     <form action="actualizar.php" method="post" enctype="multipart/form-data" autocomplete="off">
-    
+
     <table class="table table-bordered table-hover">
         <tr>
             <td class="text-right col-lg-3">Título del Sistema</td>
@@ -36,6 +37,10 @@ include_once("../../cabecerahtml.php");
         <tr>
             <td class="text-right col-lg-3">Lema del Sistema</td>
             <td><input type="text" name="Lema" class="form-control" autofocus value="<?php echo $Lema?>" required></td>
+        </tr>
+        <tr>
+            <td class="text-right col-lg-3">Código SIE de la Unidad Educativa</td>
+            <td><input type="text" name="Sie" class="form-control" autofocus value="<?php echo $Sie?>" required></td>
         </tr>
         <tr>
             <td colspan="2"><h3 class="text-center">Facturación</h3>
