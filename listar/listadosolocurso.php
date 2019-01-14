@@ -4,15 +4,22 @@ include_once(RAIZ."class/curso.php");
 include_once(RAIZ."class/alumno.php");
 if(isset($_GET['CodAlumno'])){
 	$CodAlumno=$_GET['CodAlumno'];
+	//echo $CodAlumno;
 	$alumno=new alumno;
-	$al=array_shift($alumno->mostrarTodoDatos($CodAlumno));
+	$al=$alumno->mostrarTodoDatos($CodAlumno);
+	$al=array_shift($al);
 }
 if(isset($_GET['CodCurso'])){
 	$CodCurso=$_GET['CodCurso'];
+}else{
+	if(isset($al)){
+		$CodCurso=$al['CodCurso'];
+	}else{
+		$CodCurso=0;
+	}
 }
 if(empty($CodCurso)){
-	if(isset($al))
-	$CodCurso=$al['CodCurso'];
+
 }
 $curso=new curso;
 if(!isset($listacurso)){
@@ -33,7 +40,7 @@ $i=0;
 	foreach($curso->mostrar() as $cu){$i++;
 	?>
 
-	<input type="radio" name="cur" value="<?php echo $cu['CodCurso']?>" id="c<?php echo $cu['CodCurso']?>" class="radiolistadocurso"><label for="c<?php echo $cu['CodCurso']?>"><?php echo $cu['Nombre']?></label>
+	<input type="radio" name="cur" value="<?php echo $cu['CodCurso']?>" id="c<?php echo $cu['CodCurso']?>" class="radiolistadocurso" rel="<?php echo isset($_GET['CodAlumno'])?$_GET['CodAlumno']:0; ?>" <?php echo $cu['CodCurso']==$CodCurso?'checked="checked"':'';?>><label for="c<?php echo $cu['CodCurso']?>"><?php echo $cu['Nombre']?></label>
 	<?php
 	}
 }
