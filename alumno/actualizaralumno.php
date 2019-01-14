@@ -142,6 +142,6 @@ if(!empty($_POST)){
 	}
 	$al->actualizarDatosAlumno($valuesAl,$CodAlumno);
 	$doc->actualizarDocumento($valuesDoc,$CodAlumno);
-	header("Location:registro/listar.php");
+	header("Location:registro/listar.php?CodAlumno=".$CodAlumno);
 }
 ?>
