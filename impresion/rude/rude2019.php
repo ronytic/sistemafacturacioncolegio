@@ -24,217 +24,252 @@ $NombreLibreta=$config->mostrarConfig("NombreLibreta",1);
 
 $Sie=$config->mostrarConfig("Sie",1);
 
-function escribeS($x,$y,$t,$tam=12,$align="C",$an=5,$al=4){
+function escribeS($x,$y,$t,$tam=11,$align="C",$an=5,$al=4){
 	global $pdf;
 	$pdf->SetFont('Arial','',$tam);
 	$pdf->SetXY($x,$y);
 
 	$pdf->Cell($an,$al,utf8_decode(mb_strtoupper($t,"utf8")),0,0,$align,0);
 }
-function escribe($x,$y,$t,$tam=12,$align="C",$an=5,$al=4){
+function escribe($x,$y,$t,$tam=10,$align="C",$an=5,$al=4){
 	global $pdf;
 	$pdf->SetFont('Arial','',$tam);
 	$pdf->SetXY($x,$y);
 	$pdf->SetFillColor(255,255,255);
-	$pdf->Cell($an,$al,utf8_decode(mb_strtoupper($t,"utf8")),0,0,$align,1);
+	$pdf->Cell($an,$al,utf8_decode(mb_strtoupper($t,"utf8")),0,0,$align,0);
 }
 
 	$pdf=new FPDF("P","mm",array(216, 330));
+	$pdf->SetTitle("Rude 2019");
 	$pdf->SetMargins(0,0,0);
 	$pdf->SetAutoPageBreak(true,0);
 
 	$pdf->SetFont('Arial','B',12);
-	$pdf->AddPage();
-	$pdf->Image("../../imagenes/rude/rudep1.jpg",0,0,216, 330);
-	//Codigo Sie
-	$SieSeparado=($Sie);
-	$can=strlen($SieSeparado);
+/*Primera Hoja*/
+$pdf->AddPage();
+$pdf->Image("../../imagenes/rude/rudep1.jpg",0,0,216, 330);
+//Codigo Sie
+$SieSeparado=($Sie);
+$can=strlen($SieSeparado);
 
-	$l=$can-8;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
-	escribe(173,38,$t);
-	$l=$can-7;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
-	escribe(178,38,$t);
-	$l=$can-6;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
-	escribe(182,38,$t);
-	$l=$can-5;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
-	escribe(186.5,38,$t);
-	$l=$can-4;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
-	escribe(192,38,$t);
-	$l=$can-3;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
-	escribe(196,38,$t);
-	$l=$can-2;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
-	escribe(201,38,$t);
-	$l=$can-1;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
-	escribe(206,38,$t);
+$l=$can-8;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
+escribe(173,38,$t);
+$l=$can-7;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
+escribe(178,38,$t);
+$l=$can-6;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
+escribe(182,38,$t);
+$l=$can-5;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
+escribe(186.5,38,$t);
+$l=$can-4;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
+escribe(192,38,$t);
+$l=$can-3;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
+escribe(196,38,$t);
+$l=$can-2;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
+escribe(201,38,$t);
+$l=$can-1;$t=isset($SieSeparado[$l])?$SieSeparado[$l]:'';
+escribe(206,38,$t);
 
-	//escribe(75.2,38.1,"x",10);
-	//escribe(140,38,mb_strtoupper($NombreLibreta['Valor'],"utf8"));
-	//escribe(56,43.3,"2084");
-	//escribe(110,43.5,"EL ALTO 1");
-	escribe(31,53.9,mayuscula($a['Paterno']),11,"L",90,3.5);
-	escribe(31,59,mayuscula($a['Materno']),11,"L",90,3.5);
-	escribe(31,64.1,mayuscula($a['Nombres']),11,"L",90,3.5);
+//escribe(75.2,38.1,"x",10);
+//escribe(140,38,mb_strtoupper($NombreLibreta['Valor'],"utf8"));
+//escribe(56,43.3,"2084");
+//escribe(110,43.5,"EL ALTO 1");
+escribe(31,53.9,mayuscula($a['Paterno']),10,"L",90,3.5);
+escribe(31,59,mayuscula($a['Materno']),10,"L",90,3.5);
+escribe(31,64.5,mayuscula($a['Nombres']),10,"L",90,3.5);
 
-	escribe(22,73.8,mayuscula($al['PaisN']),12,"L",50,3.5);;
-	escribe(82,73.8,mayuscula($a['LugarNac']),12,"L",50,3.5);
-	escribe(22,78.8,mayuscula($al['ProvinciaN']),12,"L",50,3.5);
-	escribe(82,78.8,mayuscula($al['LocalidadN']),12,"L",50,3.5);
+escribe(22,73.8,mayuscula($al['PaisN']),10,"L",50,3.5);;
+escribe(82,73.8,mayuscula($a['LugarNac']),10,"L",50,3.5);
+escribe(22,78.8,mayuscula($al['ProvinciaN']),10,"L",50,3.5);
+escribe(82,78.8,mayuscula($al['LocalidadN']),10,"L",50,3.5);
 
-	escribeS(130,54,$a['Rude'],12,"L",90,3.5);
+escribeS(130,54.2,$a['Rude'],12,"L",90,3.5);
 
-	escribeS(203.4,64,"x",8);
-
-
-	escribe(42,101,$a['Ci'],12,"L",40,3);
-
-	escribe(130,78,date('d',strtotime($a['FechaNac'])));
-	escribe(142,78,date('m',strtotime($a['FechaNac'])));
-	escribe(158,78,date('Y',strtotime($a['FechaNac'])));
-
-	if(!$a['Sexo'])escribe(197.5,77.2,"x",8);
-	if($a['Sexo'])escribe(197.5,81.5,"x",8);
-
-	escribe(131,95.5,$al['CertOfi'],10);
-	escribe(155,95.5,$al['CertLibro'],10);
-	escribe(179.5,95.5,$al['CertPartida']);
-	escribe(196,95.5,$al['CertFolio']);
-
-	/*escribe(50,104,$al['CodigoSie']);//SIE
-	escribe(155,104.5,$al['NombreUnidad'],10);*/
-	if($a['CodCurso']==2 || $a['CodCurso']==1|| $a['CodCurso']==4)escribe(8.3,119.5,"x",7);//pre kinder
-	if($a['CodCurso']==3)escribe(14,119.5,"x",7);//kinder
-	//if($a['CodCurso']==3)escribe(23.5,119.5,"x",7);//1
-	//if($a['CodCurso']==3)escribe(28.5,119.5,"x",7);//2
-	/*if($a['CodCurso']==4)escribe(33,119.5,"x",7);//3
-	if($a['CodCurso']==5)escribe(38,119.5,"x",7);//4
-	if($a['CodCurso']==6)escribe(43,119.5,"x",7);//5
-	if($a['CodCurso']==7)escribe(47.8,119.5,"x",7);//6
-	if($a['CodCurso']==8)escribe(56.3,119.5,"x",7);//1
-	if($a['CodCurso']==9)escribe(61,119.5,"x",7);//2
-	if($a['CodCurso']==10)escribe(66,119.5,"x",7);//3
-	if($a['CodCurso']==11)escribe(70.6,119.5,"x",7);//4
-	if($a['CodCurso']==12)escribe(75.5,119.5,"x",7);//5
-	if($a['CodCurso']==13)escribe(80.5,119.5,"x",7);//6*/
-
-	if($a['CodCurso']==1 || $a['CodCurso']==3)
-	{
-		escribe(123.8,121.5,"x",8);//paralelo A
-	}else{
-		if($a['CodCurso']==4){
-			escribe(133.5,121.7,"x",8);//paralelo B
-		}else{
-			escribe(128.8,121.7,"x",8);//paralelo B
-		}
-
-	}
-	if($a['CodCurso']!=4){
-		escribe(186.2,120,"x",10);//turno
-	}else{
-
-		escribe(193.2,120,"x",10);//turno
-	}
-	escribe(60,134,$al['ProvinciaE']);
-	escribe(60,140,$al['MunicipioE']);
-	escribe(60,145.5,$al['ComunidadE']);
-
-	escribe(160,134.5,$a['Zona']);
-	escribe(160,140.5,$a['Calle']);
-	escribe(195,146,$a['Numero']);
-	escribe(132,146,$a['TelefonoCasa']);
+escribeS(203.4,64,"x",8);
 
 
-	escribe(23,169,$al['LenguaMater'],10);
-
-	if($al['CastellanoI'])escribe(23,180,"CASTELLANO",10);
-	if($al['InglesI'])escribe(23,184,"INGLES",10);
-	if($al['AymaraI'])escribe(23,188.5,"AYMARA",10);
-	switch($al['PerteneceA']){
-		case "MESTIZO":{
-			escribe(61,166,"x",7);
-			//escribe(61,170,"x",10);
-			escribe(120,189.3,$al['PerteneceA'],8);
-		}break;
-		case "AYMARA":{
-			escribe(61,174,"x",7);
-		}break;
-		case "QUECHUA":{
-			escribe(108,184.5,"x",7);
-		}break;
-	}
-
-	escribe(191,163.5,"x",8);//centro salud
-
-	if($al['VecesCentro']=="1a2")escribe(147.3,170,"x",8);
-	if($al['VecesCentro']=="3a5")escribe(164.5,170,"x",8);
-	if($al['VecesCentro']=="6a+")escribe(185,170,"x",8);
-	if($al['VecesCentro']=="niguna")escribe(198,170,"x",8);
-
-	escribe(170,179.5,"x",8);//no
-	escribe(170,182.5,"x",8);//no
-	escribe(170,185,"x",8);//no
-
-	escribe(42.5,200,"x",8);
-
-	escribe(35.5,224.5,"x",8);
-
-	escribe(34.5,233.5,"x",8);
-
-	escribe(112.5,227.5,"x",8);
-
-	escribe(88,237.5,"NO TRABAJO",10);
-	escribe(89.5,245.5,"x",8);
-
-	if($al['InternetCasa']==1)escribe(149,204,"x",8);
-	if($al['InternetCasa']==2)escribe(149,207,"x",8);
-	if($al['InternetCasa']==3)escribe(149,210,"x",8);
-	if($al['InternetCasa']==4)escribe(149,214,"x",8);
-
-	//escribe(145,233.5,"x",8);
-
-	if($al['Transporte']=="APIE")escribe(196.5,204,"x",8);
-	if($al['Transporte']=="MINIBUS")escribe(196.5,207,"x",8);
-
-	escribe(192.5,234,"x",10);
 
 
+escribe(83,88,date('d',strtotime($a['FechaNac'])));
+escribe(94,88,date('m',strtotime($a['FechaNac'])));
+escribe(112,88,date('Y',strtotime($a['FechaNac'])));
+
+if($a['Sexo'])escribe(148,59.2,"x",8);
+if(!$a['Sexo'])escribe(148,64,"x",8);
+
+
+
+escribe(13,88,$al['CertOfi'],10);
+escribe(30,88,$al['CertLibro'],10);
+escribe(50,88,$al['CertPartida']);
+escribe(65,88,$al['CertFolio']);
+
+
+escribe(42,101,$a['Ci'],10,"L");
+escribe(112,101,$a['CiExt'],10,"L");
+
+escribe(36,110,mayuscula($a['LugarNac']),10,"L");
+escribe(36,115,mayuscula($al['ProvinciaE']),10,"L");
+escribe(36,120,mayuscula($al['MunicipioE']),10,"L");
+escribe(36,125,mayuscula($al['ComunidadE']),10,"L");
+
+escribe(36,130,mayuscula($a['Zona']),10,"L");
+escribe(36,135,mayuscula($a['Calle']),10,"L");
+escribe(36,140,mayuscula($a['Numero']),10,"L");
+escribe(108,140,$a['TelefonoCasa'],10,"L");
+escribe(173,140,$a['Celular'],10,"L");
+
+escribe(7,168.5,$al['LenguaMater'],10,"L");
+
+if($al['CastellanoI'])escribe(8,188,"CASTELLANO",10,"L");
+if($al['InglesI'])escribe(8,192,"INGLES",10,"L");
+if($al['AymaraI'])escribe(8,196.5,"AYMARA",10,"L");
+
+
+switch($al['PerteneceA']){
+	case "NINGUNO":{
+		escribe(46,160,"x",7);
+	}break;
+	case "AYMARA":{
+		escribe(46,172,"x",7);
+	}break;
+	case "QUECHUA":{
+		escribe(99,188,"x",7);
+	}break;
+}
+
+escribe(203,152,"x",8);//centro salud
+
+if($al['VecesCentro']=="1a2")escribe(146,192,"x",8);
+if($al['VecesCentro']=="3a5")escribe(164,192,"x",8);
+if($al['VecesCentro']=="6a+")escribe(187,192,"x",8);
+if($al['VecesCentro']=="ninguna")escribe(203,192,"x",8);
+
+if($al['Seguro']==1){escribe(178,196,"x",8);}else{escribe(196,196,"x",8);}
+
+if($al['CajaSeguro'])escribe(171,168,"x",8);
+if($al['EstaPublico'])escribe(171,172,"x",8);
+if($al['EstaPrivado'])escribe(171,176,"x",8);
+if($al['EnVivienda'])escribe(203,168,"x",8);
+if($al['MedicinaTradicional'])escribe(203,172,"x",8);
+if($al['Automedicacion'])escribe(203,176,"x",8);
+
+escribe(20,209,"x",8);//si
+escribe(20,217,"x",8);//si
+escribe(20,225,"x",8);//si
+
+escribe(92,209,"x",8);//si
+escribe(92,221,"x",8);//si
+
+
+/*escribe(170,179.5,"x",8);//no
+escribe(170,182.5,"x",8);//no
+escribe(170,185,"x",8);//no
+*/
+
+
+/*escribe(42.5,200,"x",8);
+
+escribe(35.5,224.5,"x",8);
+
+escribe(34.5,233.5,"x",8);
+
+escribe(112.5,227.5,"x",8);*/
+
+//escribe(88,237.5,"NO TRABAJO",10);
+escribe(13,254.5,"x",8);
+
+if($al['ViviendaOcupa']==1)escribe(162,213,"x",8);
+if($al['ViviendaOcupa']==2)escribe(162,217,"x",8);
+if($al['ViviendaOcupa']==3)escribe(162,221,"x",8);
+if($al['ViviendaOcupa']==4)escribe(205,213,"x",8);
+if($al['ViviendaOcupa']==5)escribe(205,217,"x",8);
+if($al['ViviendaOcupa']==6)escribe(205,221,"x",8);
+
+
+if($al['InternetCasa']==1)escribe(30,237,"x",8);
+if($al['InternetCasa']==2)escribe(30,241,"x",8);
+if($al['InternetCasa']==3)escribe(60,237,"x",8);
+if($al['InternetCasa']==4)escribe(60,241,"x",8);
+if($al['InternetCasa']==5)escribe(95,237,"x",8);
+//escribe(145,233.5,"x",8);
+
+if($al['Transporte']=="APIE")escribe(39,293,"x",8);
+if($al['Transporte']=="MINIBUS")escribe(39,298,"x",8);
+
+escribe(83,302,"x",10);
+
+escribe(185,285,"x",10);
+
+/*Segunda Hoja*/
 	$pdf->AddPage();
 	$pdf->Image("../../imagenes/rude/rudep2.jpg",0,0,216, 330);
 
-	escribe(54,29.8,$a['CiPadre'],10);
-	escribe(72,31,$a['ApellidosPadre'],10);
-	escribe(72,33.3,$a['NombrePadre'],10);
-	escribe(72,35.5,$al['IdiomaP'],10);
-	escribe(72,37,$a['OcupPadre'],10);
-	escribe(72,41,$al['InstruccionP'],10);
-	escribe(72,45,$al['ParentescoT'],10);
+	if($al['ViveCon']==1)escribe(108,8,"x",10,"L");
+	if($al['ViveCon']==2)escribe(131,8,"x",10,"L");
+	if($al['ViveCon']==3)escribe(158,8,"x",10,"L");
+	if($al['ViveCon']==4)escribe(182,8,"x",10,"L");
+	if($al['ViveCon']==5)escribe(205,8,"x",10,"L");
 
-	escribe(161,29.5,$a['CiMadre'],10);
-	escribe(175,31,$a['ApellidosMadre'],10);
-	escribe(175,33.7,$a['NombreMadre'],10);
-	escribe(175,35.2,$al['IdiomaM'],10);
-	escribe(175,37,$a['OcupMadre'],10);
-	escribe(175,41,$al['InstruccionM'],10);
+	escribe(44,19,$a['CiPadre'],10,"L");
+	escribe(104,19,$a['CiExtP'],10,"L");
+	escribe(44,23,(explode(" ",$a['ApellidosPadre']))[0],10,"L");
+	escribe(44,28,(explode(" ",$a['ApellidosPadre']))[1],10,"L");
+	escribe(44,33,$a['NombrePadre'],10,"L");
+	escribe(44,38,$al['IdiomaP'],10,"L");
+	escribe(44,42,$a['OcupPadre'],10,"L");
+	escribe(44,47,$al['InstruccionP'],10,"L");
+	escribe(44,52,date("d",strtotime($al['FechaNacP'])),10,"L");
+	escribe(56,52,date("m",strtotime($al['FechaNacP'])),10,"L");
+	escribe(70,52,date("Y",strtotime($al['FechaNacP'])),10,"L");
 
-	escribe(54-28,290.5,"E",10);//E
-	escribe(58-28,290.5,"L",10);//E
-	escribe(67.5-28,290.5,"A",10);//E
-	escribe(72-28,290.5,"L",10);//E
-	escribe(76.5-28,290.5,"T",10);//E
-	escribe(81-28,290.5,"O",10);//E
+
+	escribe(150,19,$a['CiMadre'],10,"L");
+	escribe(201,19,$a['CiExtM'],10,"L");
+	escribe(150,23,(explode(" ",$a['ApellidosMadre']))[0],10,"L");
+	escribe(150,28,(explode(" ",$a['ApellidosMadre']))[1],10,"L");
+	escribe(150,33,$a['NombreMadre'],10,"L");
+	escribe(150,38,$al['IdiomaM'],10,"L");
+	escribe(150,42,$a['OcupMadre'],10,"L");
+	escribe(150,47,$al['InstruccionM'],10,"L");
+	escribe(150,52,date("d",strtotime($al['FechaNacM'])),10,"L");
+	escribe(162,52,date("m",strtotime($al['FechaNacM'])),10,"L");
+	escribe(174,52,date("Y",strtotime($al['FechaNacM'])),10,"L");
+
+	escribe(44,66,$al['CiTutor'],10,"L");
+	escribe(104,66,$al['CiExtT'],10,"L");
+	escribe(44,71,($al['ApellidoPT']),10,"L");
+	escribe(44,76,($al['ApellidoMT']),10,"L");
+	escribe(44,81,$al['NombresT'],10,"L");
+	escribe(44,86,$al['IdiomaP'],10,"L");
+	escribe(44,91,$al['OcupacionT'],10,"L");
+	escribe(44,95,$al['InstruccionT'],10,"L");
+	escribe(44,109,date("d",strtotime($al['FechaNacT'])),10,"L");
+	escribe(56,109,date("m",strtotime($al['FechaNacT'])),10,"L");
+	escribe(70,109,date("Y",strtotime($al['FechaNacT'])),10,"L");
+
+
+	escribe(44,102,$al['ParentescoT'],10,"L");
+
+	escribe(135,66,"E",10);//E
+	escribe(139,66,"L",10);//E
+	escribe(149,66,"A",10);//E
+	escribe(153,66,"L",10);//E
+	escribe(158,66,"T",10);//E
+	escribe(162,66,"O",10);//E
 
 	$dia=date("d",strtotime($a['FechaIns']));
 	$mes=date("m",strtotime($a['FechaIns']));
 	$anio=date("Y",strtotime($a['FechaIns']));
-	escribe(81+38.5,290.5,$dia[0],10);//E
-	escribe(81+43,290.5,$dia[1],10);//E
+	escribe(135,76,$dia[0],10);//E
+	escribe(140,76,$dia[1],10);//E
 
-	escribe(81+60,290.5,$mes[0],10);//E
-	escribe(81+64,290.5,$mes[1],10);//E
+	escribe(154,76,$mes[0],10);//E
+	escribe(158,76,$mes[1],10);//E
 
-	escribe(81+80,290.5,$anio[0],10);//E
-	escribe(81+84.5,290.5,$anio[1],10);//E
-	escribe(81+89.5,290.5,$anio[2],10);//E
-	escribe(81+94,290.5,$anio[3],10);//E
+	escribe(170,76,$anio[0],10);//E
+	escribe(175.5,76,$anio[1],10);//E
+	escribe(180,76,$anio[2],10);//E
+	escribe(184,76,$anio[3],10);//E
 	$pdf->Output();
 
 ?>
