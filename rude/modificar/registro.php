@@ -22,7 +22,7 @@ if(count($alu)<=0){
 		<input type="hidden" name="CodAlumno" value="<?php echo $CodAlumno;?>" />
         Todos los datos en Mayusculas
 			<div class="panel panel-default">
-    	<div class="panel-heading"><h3 class="panel-title">Datos del Estudiante</h3></div>
+    	<div class="panel-heading"><h3 class="panel-title">Datos del Estudiante - MODIFICAR RUDE</h3></div>
         <div class="panel-body">
 	    	<table class="table table-hover">
             	<tr><td>Apellido Paterno</td><td>::</td><td><input type="text" name="paterno" value="<?php echo mayuscula($al['Paterno']);?>" class="form-control"/></td></tr>
