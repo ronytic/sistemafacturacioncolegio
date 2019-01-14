@@ -30,8 +30,19 @@ if(!empty($_POST)){
 		"InglesI"=>$_POST['lenguaIngles'],
 		"PerteneceA"=>"'{$_POST['identificaA']}'",
 		"CentroSalud"=>$_POST['centroSalud'],
+
+		"CajaSeguro"=>"'{$_POST['CajaSeguro']}'",
+		"EstaPublico"=>"'{$_POST['EstaPublico']}'",
+		"EstaPrivado"=>"'{$_POST['EstaPrivado']}'",
+		"EnVivienda"=>"'{$_POST['EnVivienda']}'",
+		"MedicinaTradicional"=>"'{$_POST['MedicinaTradicional']}'",
+		"Automedicacion"=>"'{$_POST['Automedicacion']}'",
+
 		"VecesCentro"=>"'{$_POST['vecesSalud']}'",
-		"Discapacidad"=>"'{$_POST['deficiencia']}'",
+		"Seguro"=>"'{$_POST['Seguro']}'",
+
+		"ViviendaOcupa"=>"'{$_POST['ViviendaOcupa']}'",
+
 		"AguaDomicilio"=>$_POST['aguaPotable'],
 		"Electricidad"=>$_POST['electricidad'],
 		"Alcantarillado"=>$_POST['alcantarillado'],
@@ -39,6 +50,9 @@ if(!empty($_POST)){
 		"InternetCasa"=>$_POST['internet'],
 		"Transporte"=>"'{$_POST['traslado']}'",
 		"TiempoLlegada"=>"'{$_POST['tiempo']}'",
+		"ViveCon"=>"'{$_POST['ViveCon']}'",
+
+
 		"InstruccionP"=>"'{$_POST['instruccionP']}'",
 		"IdiomaP"=>"'{$_POST['idiomaP']}'",
 

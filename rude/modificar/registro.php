@@ -84,26 +84,47 @@ if(count($alu)<=0){
 
                     Aymara<select name="lenguaAymara"><option value="1">SI</option><option value="0" selected="selected">NO</option></select>
                     </td></tr>
-                <tr><td>Se Identifica</td><td>::</td><td><select name="identificaA" class="form-control"><option value="MESTIZO" selected="selected">MESTIZO</option><option value="AYMARA">AYMARA</option><option value="QUECHUA">QUECHUA</option></select></td></tr>
+                <tr><td>Se Identifica</td><td>::</td><td><select name="identificaA" class="form-control"><option value="NINGUNO" selected="selected">NINGUNO</option><option value="AYMARA">AYMARA</option><option value="QUECHUA">QUECHUA</option></select></td></tr>
                 <tr><td colspan="3">Salud</td></tr>
-                <tr><td>¿Tiene un Centro de Salud a su Alrededor?</td><td>::</td><td><select name="centroSalud"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
-                <tr><td>¿Cuantas veces acudió el año pasado?</td><td>::</td><td><select name="vecesSalud"><option value="1a2">1 a 2 veces</option><option value="3a5">3 a 5 veces</option><option value="6a+">6 o más veces</option><option value="ninguna">Ninguna</option></select></td></tr>
-                <tr><td>Discapacidad o Deficiencia Mental</td><td>::</td><td><select name="deficiencia"><option value="1">SI</option><option value="0" selected="selected">NO</option></select></td></tr>
+                <tr><td>¿Tiene un Centro de Salud a su Alrededor?</td><td>::</td><td><select name="centroSalud" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+								<tr><td colspan="3">¿Donde Acudio por problemas de salud?</td></tr>
+								<tr><td>Caja o Seguro</td><td>::</td><td><select name="CajaSeguro" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+								<tr><td>Establecimiento Público</td><td>::</td><td><select name="EstaPublico" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+								<tr><td>Establecimiento Privado</td><td>::</td><td><select name="EstaPrivado" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+								<tr><td>En su vivienda</td><td>::</td><td><select name="EnVivienda" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+								<tr><td>Medicina Tradicional</td><td>::</td><td><select name="MedicinaTradicional" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+								<tr><td>Automedicación</td><td>::</td><td><select name="Automedicacion" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+
+                <tr><td>¿Cuantas veces acudió el año pasado?</td><td>::</td><td><select name="vecesSalud" class="form-control"><option value="1a2">1 a 2 veces</option><option value="3a5">3 a 5 veces</option><option value="6a+">6 o más veces</option><option value="ninguna">Ninguna</option></select></td></tr>
+                <tr><td>Seguro</td><td>::</td><td><select name="Seguro" class="form-control"><option value="1" <?php echo $alu['Seguro']?'selected="selected"':''?>>SI</option><option value="0"  <?php echo !$alu['Seguro']?'selected="selected"':''?>>NO</option></select></td></tr>
+
+								<tr><td>¿La vivienda que ocupa es?</td><td>::</td><td><select name="ViviendaOcupa" class="form-control"><option value="1" <?php echo $alu['ViviendaOcupa']==1?'selected="selected"':''?>>Propia</option><option value="2"  <?php echo $alu['ViviendaOcupa']==2?'selected="selected"':''?>>Alquilada</option><option value="3"  <?php echo $alu['ViviendaOcupa']==3?'selected="selected"':''?>>Anticretico</option><option value="4"  <?php echo $alu['ViviendaOcupa']==4?'selected="selected"':''?>>Cedida por Servicios</option><option value="5"  <?php echo $alu['ViviendaOcupa']==5?'selected="selected"':''?>>Prestada por Parientes</option><option value="6"  <?php echo $alu['ViviendaOcupa']==6?'selected="selected"':''?>>Contrato Mixto Alguiler y Anticretico</option></select></td></tr>
                 <tr><td colspan="3">Acceso de Servicios Basicos</td></tr>
-                <tr><td>Agua Potable a Domicilio</td><td>::</td><td><select name="aguaPotable"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
-                <tr><td>Electricidad Red Publica</td><td>::</td><td><select name="electricidad"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
-                <tr><td>Alcantarillado</td><td>::</td><td><select name="alcantarillado"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
-                <tr><td>¿El estudiante trabaja?</td><td>::</td><td><select name="trabaja" ><option value="NOTRABAJA" selected="selected">NO TRABAJA</option><option value="EMPLEADO">EMPLEADO</option><option value="INDEPENDIENTE" >INDEPENDIENTE</option><option value="DOMESTICOCASA" >TRABAJO DOMESTICO EN CASA</option></select></td></tr>
+                <tr><td>Agua Potable a Domicilio</td><td>::</td><td><select name="aguaPotable" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+                <tr><td>Electricidad Red Publica</td><td>::</td><td><select name="electricidad" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+                <tr><td>Alcantarillado</td><td>::</td><td><select name="alcantarillado" class="form-control"><option value="1" selected="selected">SI</option><option value="0">NO</option></select></td></tr>
+                <tr><td>¿El estudiante trabaja?</td><td>::</td><td><select name="trabaja" class="form-control" readonly><option value="NOTRABAJA" selected="selected">NO TRABAJA</option><option value="EMPLEADO">EMPLEADO</option><option value="INDEPENDIENTE" >INDEPENDIENTE</option><option value="DOMESTICOCASA" >TRABAJO DOMESTICO EN CASA</option></select></td></tr>
                 <tr><td>¿El estudiante tiene acceso a Internet?</td><td>::</td><td>
                     	<select name="internet" id="internet" class="form-control">
-                    	<option value="4" <?php echo $alu['InternetCasa']=='4'?'selected="selected"':'';?>>No Accede a Internet</option>
+                    	<option value="5" <?php echo $alu['InternetCasa']=='5'?'selected="selected"':'';?>>No Accede a Internet</option>
                         <option value="1" <?php echo $alu['InternetCasa']=='1'?'selected="selected"':'';?>>Su Domicilio</option>
                         <option value="2" <?php echo $alu['InternetCasa']=='2'?'selected="selected"':'';?>>En la Unidad Educativa</option>
                         <option value="3" <?php echo $alu['InternetCasa']=='3'?'selected="selected"':'';?>>Lugares Públicos</option>
+												<option value="4" <?php echo $alu['InternetCasa']=='4'?'selected="selected"':'';?>>Teléfono de Celular</option>
                         </select>
                     </td></tr>
-                <tr><td>¿El estudiante se traslada en?</td><td>::</td><td><select name="traslado"><option value="APIE" <?php echo $alu['Transporte']=="APIE"?'selected="selected"':'';?>>A PIE</option><option value="MINIBUS" <?php echo $alu['Transporte']=="MINIBUS"?'selected="selected"':'';?>>MINIBUS</option></select></td></tr>
-                <tr><td>Tiempo que tarda el Estudiante</td><td>::</td><td><input type="text" name="tiempo" value="Menos de media Hora" readonly="readonly"/></td></tr>
+                <tr><td>¿El estudiante se traslada en?</td><td>::</td><td><select name="traslado" class="form-control"><option value="APIE" <?php echo $alu['Transporte']=="APIE"?'selected="selected"':'';?>>A PIE</option><option value="MINIBUS" <?php echo $alu['Transporte']=="MINIBUS"?'selected="selected"':'';?>>MINIBUS</option></select></td></tr>
+                <tr><td>Tiempo que tarda el Estudiante</td><td>::</td><td><input type="text" name="tiempo" value="Menos de media Hora" readonly="readonly" class="form-control"/></td></tr>
+								<tr><td>¿El estudiante vive con?</td><td>::</td><td>
+                    	<select name="ViveCon" id="ViveCon" class="form-control">
+
+                        <option value="1" <?php echo $alu['ViveCon']=='1'?'selected="selected"':'';?>>Padre y Madre</option>
+                        <option value="2" <?php echo $alu['ViveCon']=='2'?'selected="selected"':'';?>>Solo Padre</option>
+                        <option value="3" <?php echo $alu['ViveCon']=='3'?'selected="selected"':'';?>>Solo Madre</option>
+												<option value="4" <?php echo $alu['ViveCon']=='4'?'selected="selected"':'';?>>Tutor</option>
+												<option value="5" <?php echo $alu['ViveCon']=='5'?'selected="selected"':'';?>>Solo</option>
+                        </select>
+                    </td></tr>
         	</table>
 				</div>
 			</div>
