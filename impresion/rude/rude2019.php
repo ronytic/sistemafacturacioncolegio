@@ -212,8 +212,10 @@ escribe(185,285,"x",10);
 
 	escribe(44,19,$a['CiPadre'],10,"L");
 	escribe(104,19,$a['CiExtP'],10,"L");
-	@escribe(44,23,(explode(" ",$a['ApellidosPadre']))[0],10,"L");
-	@escribe(44,28,(explode(" ",$a['ApellidosPadre']))[1],10,"L");
+	$d1=explode(" ",$a['ApellidosPadre']);
+
+	@escribe(44,23,$d1[0],10,"L");
+	@escribe(44,28,$d1[1],10,"L");
 	escribe(44,33,$a['NombrePadre'],10,"L");
 	escribe(44,38,$al['IdiomaP'],10,"L");
 	escribe(44,42,$a['OcupPadre'],10,"L");
@@ -228,8 +230,9 @@ escribe(185,285,"x",10);
 
 	escribe(150,19,$a['CiMadre'],10,"L");
 	escribe(201,19,$a['CiExtM'],10,"L");
-	@escribe(150,23,(explode(" ",$a['ApellidosMadre']))[0],10,"L");
-	@escribe(150,28,(explode(" ",$a['ApellidosMadre']))[1],10,"L");
+	$d1=explode(" ",$a['ApellidosMadre']);
+	@escribe(150,23,$d1[0],10,"L");
+	@escribe(150,28,$d1[1],10,"L");
 	escribe(150,33,$a['NombreMadre'],10,"L");
 	escribe(150,38,$al['IdiomaM'],10,"L");
 	escribe(150,42,$a['OcupMadre'],10,"L");
