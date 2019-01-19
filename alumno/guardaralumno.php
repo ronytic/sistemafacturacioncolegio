@@ -164,5 +164,9 @@ if(!empty($_POST)){
 
 	//if(!empty($CodAl)){$tmpalumno->actualizarVisor($CodAl);}
 	header("Location:espera.php?CodAlumno=".$CodAlumno);
+
+	include_once("../class/tmpcola.php");
+	$tmpcola=new tmpcola;
+	$tmpcola->insertarRegistro(array("CodAlumno"=>$CodAlumno,"Estado"=>"'Espera'"));
 }
 ?>
