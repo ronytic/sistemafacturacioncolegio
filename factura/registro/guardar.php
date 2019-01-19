@@ -96,9 +96,9 @@ $valores=array(
 
 );
 
-echo "<pre>";
+/*echo "<pre>";
 print_r($valores);
-echo "</pre>";
+echo "</pre>";*/
 
 /*exit();*/
 
@@ -146,5 +146,5 @@ foreach($a as $f){
 print_r($valores);
 echo "</pre>";
 */
-//header("Location:../ver/ver.php?Cod=".$CodFactura);
+header("Location:../ver/ver.php?Cod=".$CodFactura);
 ?>
