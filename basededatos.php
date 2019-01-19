@@ -2,8 +2,8 @@
 $host="localhost";
 $user="root";
 $pass="";
-$database="sistemafacturacioncolegio";
-$port=3307;
+$database="sistemafacturacioncolegio2019";
+$port=3306;
 
 /*Configuración de Idioma del Sistema*/
 date_default_timezone_set('America/La_Paz');
