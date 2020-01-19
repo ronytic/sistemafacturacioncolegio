@@ -123,13 +123,13 @@ celdaM(55,capitalizar(minuscula($ActividadEconomica)),"",8,"C");
 
 
 $pdf->SetXY($x+10,$y+44);
-celda(20,'Señor(es):',"B",8);
-celda(45,mayuscula($NombreFactura),"",8);
-celda(10,'Nit'.": ","B",8);
-celda(30,($Nit),"",8);
+celda(16,'Señor(es):',"B",8);
+celda(60,mayuscula($NombreFactura),"",8);
+celda(6,'Nit'.": ","B",8);
+celda(23,($Nit),"",8);
 
 celda(10,'Fecha:',"B",8);
-celda(40,strftime("%d de %B de %Y",strtotime($f['FechaFactura'])),"",8);
+celda(35,strftime("%d de %B de %Y",strtotime($f['FechaFactura'])),"",8);
 
 $pdf->SetXY($x+10,$y+71);
 celda(10,'Son'.": ","B",8);//$TotalBs
@@ -199,13 +199,13 @@ celdaM(55,capitalizar(minuscula($ActividadEconomica)),"",8,"C");
 
 
 $pdf->SetXY($x+10,$y+44);
-celda(20,'Señor(es):',"B",8);
-celda(45,mayuscula($NombreFactura),"",8);
-celda(10,'Nit'.": ","B",8);
-celda(30,($Nit),"",8);
+celda(16,'Señor(es):',"B",8);
+celda(60,mayuscula($NombreFactura),"",8);
+celda(6,'Nit'.": ","B",8);
+celda(23,($Nit),"",8);
 
 celda(10,'Fecha:',"B",8);
-celda(40,strftime("%d de %B de %Y",strtotime($f['FechaFactura'])),"",8);
+celda(35,strftime("%d de %B de %Y",strtotime($f['FechaFactura'])),"",8);
 
 $pdf->SetXY($x+10,$y+71);
 celda(10,'Son'.": ","B",8);//$TotalBs
