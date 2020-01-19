@@ -19,7 +19,7 @@ $a=array_shift($a);
 $cur=$curso->mostrarCurso($a['CodCurso']);
 $cur=array_shift($cur);
 
-//print_r($cur);
+// print_r($cur);
 $NombreLibreta=$config->mostrarConfig("NombreLibreta",1);
 
 $Sie=$config->mostrarConfig("Sie",1);
@@ -200,6 +200,57 @@ escribe(83,302,"x",10);
 
 escribe(185,285,"x",10);
 
+$prekinder=false;
+$kinder=false;
+$paralelo_a=false;
+$paralelo_b=false;
+$paralelo_c=false;
+switch($cur['CodCurso']){
+	case 1:{
+		$prekinder=true;
+		$paralelo_a=true;
+	}break;
+	case 2:{
+		$prekinder=true;
+		$paralelo_b=true;
+	}break;
+	case 4:{
+		$prekinder=true;
+		$paralelo_c=true;
+	}break;
+
+	case 3:{
+		$kinder=true;
+		$paralelo_a=true;
+	}break;
+}
+
+
+escribe(10,320,"INICIAL:",10);//E
+escribe(20,320,"1º",10);//E
+$pdf->setXY(25,320);
+$pdf->cell(4,4,$prekinder?'X':'',1);
+
+
+escribe(35,320,"2º",10);//E
+$pdf->setXY(40,320);
+$pdf->cell(4,4,$kinder?'X':'',1);
+
+
+escribe(70,320,"PARALELO:",10);//E
+
+escribe(85,320,"A",10);//E
+$pdf->setXY(90,320);
+$pdf->cell(4,4,$paralelo_a?'X':'',1);
+
+escribe(98,320,"B",10);//E
+$pdf->setXY(103,320);
+$pdf->cell(4,4,$paralelo_b?'X':'',1);
+
+escribe(112,320,"C",10);//E
+$pdf->setXY(117,320);
+$pdf->cell(4,4,$paralelo_c?'X':'',1);
+
 /*Segunda Hoja*/
 	$pdf->AddPage();
 	$pdf->Image("../../imagenes/rude/rudep2.jpg",0,0,216, 330);
@@ -280,6 +331,9 @@ escribe(185,285,"x",10);
 	escribe(175.5,76,$anio[1],10);//E
 	escribe(180,76,$anio[2],10);//E
 	escribe(184,76,$anio[3],10);//E
+
+	
+
 	$pdf->Output();
 
 ?>
