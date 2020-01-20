@@ -4,13 +4,12 @@ extract($_POST);
 
 include_once("../../class/curso.php");
 $curso = new curso;
-
-$valores = [
+$valores = array(
     'Nombre' => "'$Nombre'",
     'Abreviado' => "'$Abreviado'",
     'Orden' => "'$Orden'",
     'MontoCuota' => "'$MontoCuota'",
-];
+);
 
 $curso->actualizarRegistro($valores, "CodCurso=$CodCurso");
 header("Location:listar.php");
