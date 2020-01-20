@@ -2,7 +2,7 @@
 $host="localhost";
 $user="root";
 $pass="";
-$database="sistemafacturacioncolegio2019";
+$database="sistemafacturacioncolegio2020";
 $port=3306;
 
 /*Configuración de Idioma del Sistema*/
