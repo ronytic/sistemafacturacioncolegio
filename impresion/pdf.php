@@ -90,6 +90,9 @@ $DatosGenerador=array("TipoUsuario"=>$TipoUsuario,
             if($TipoRelleno==2){
                 $this->SetFillColor(184,184,184);
             }
+            if($TipoRelleno==3){
+                $this->SetFillColor(146, 205, 247);
+            }
 			$this->SetFont("Arial",$tipo,$tam);
 		}
 		function CuadroCabecera($txt1Ancho,$txt1,$txt2Ancho,$txt2){
