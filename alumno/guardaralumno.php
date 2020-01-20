@@ -192,7 +192,7 @@ if (!empty($_POST)) {
 		$CodAlumnoReinscripcion = $_POST['CodAlumnoReinscripcion'];
 		require_once('../class/tmp_alumno.php');
 		$tmp_alumno = new tmp_alumno;
-		$tmp_a = $tmp_alumno->actualizarRegistro(['Retirado' => 1], 'CodAlumno=' . $CodAlumnoReinscripcion);
+		$tmp_a = $tmp_alumno->actualizarRegistro(array('Retirado' => 1), 'CodAlumno=' . $CodAlumnoReinscripcion);
 		require_once('../class/tmp_rude.php');
 		$tmp_rude = new tmp_rude;
 
