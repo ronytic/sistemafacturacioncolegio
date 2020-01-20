@@ -66,7 +66,20 @@ foreach($al as $a){
             $r=0;
             $fe="";
         }
-        $pdf->CuadroCuerpo(7,$fe,$r,"C",1,6);
+        if($fe!=""){
+            $pdf->CuadroCuerpo(7,$fe,$r,"C",1,6);
+        }else{
+            if($a['Observaciones']!=""){
+                $re=3;
+                $pdf->CuadroCuerpo(7*(10-$i+1),mayuscula($a['Observaciones']),$re,"C",1,6);
+            
+                $i=10;
+            }else{
+                $re=$r;
+                $pdf->CuadroCuerpo(7,$fe,$re,"C",1,6);
+            }
+            
+        }
     }
     $pdf->CuadroCuerpo(7,$cant,0,"R",1);
     $pdf->ln();
