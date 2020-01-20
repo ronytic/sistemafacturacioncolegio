@@ -18,4 +18,3 @@ class documento extends bd{
 		$this->updateRow($values,"CodAlumno=$CodAlumno");
 	}
 }
-?>

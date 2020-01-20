@@ -6,7 +6,7 @@ include_once($folder . "cabecerahtml.php");
 <script type="text/javascript">
     var archivodestinoalumno = "<?php echo "$archivodestinoalumno"; ?>";
 </script>
-<script src="<?= $folder; ?>js/listar.js"></script>
+<script src="<?= $folder; ?>js/tmp_listar.js"></script>
 <?php include_once($folder . "cabecera.php"); ?>
 <div class="col-lg-12">
     <?php

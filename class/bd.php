@@ -96,6 +96,27 @@ class bd
 	{
 		return $this->getRecords("id=$id", false, 1);
 	}
+
+	public function exists($tableName)
+	{
+		return mysqli_query($this->l, "DESCRIBE `$tableName`");
+	}
+
+	public function duplicate($originalTableName, $newTableName, $structureOnly = false)
+	{
+		if ($structureOnly) {
+			return mysqli_query($this->l, "CREATE TABLE $newTableName LIKE $originalTableName;");
+		} else {
+			return mysqli_query($this->l, "CREATE TABLE $newTableName SELECT * FROM $originalTableName;");
+		}
+	}
+
+	public function insertAllDataTable($originalTableName, $newTableName)
+	{
+		return mysqli_query($this->l, "INSERT INTO $newTableName SELECT * FROM $originalTableName;");
+	}
+
+
 	public function insertRecord($data)
 	{
 		$campos = $this->getTableFields();

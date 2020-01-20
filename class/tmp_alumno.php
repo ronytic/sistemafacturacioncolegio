@@ -1,8 +1,8 @@
 <?php
 include_once("bd.php");
-class alumno extends bd
+class tmp_alumno extends bd
 {
-	var $tabla = "alumno";
+	var $tabla = "tmp_alumno";
 
 	function mostrarDatosAlumnos($CodCurso, $Retirado = 0)
 	{
@@ -210,6 +210,6 @@ class alumno extends bd
 	}
 	function insertarAlumno($Values)
 	{
-		return $this->insertRow($Values, 1);
+		$this->insertRow($Values, 1);
 	}
 }
