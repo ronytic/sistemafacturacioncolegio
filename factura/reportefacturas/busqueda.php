@@ -13,23 +13,30 @@ var TituloDocumento="Libro de Ventas <?php echo date("d-m-Y");?>";
 <table class="table table-bordered table-striped table-hover table-condensed" id="tablaexportar">
 <thead>
     <tr>
-        <th width="50"><small>ESPECIFICACION</small>	                     </small></th>
+        <th width="50"><small>ESPECIFICACION   	                            </small></th>
         <th width="50"><small>N                                             </small></th>
         <th width="100"><small>FECHA DE LA FACTURA                           </small></th>
         <th width="50"><small>N DE LA FACTURA                               </small></th>
-        <th width="150"><small>N DE AUTORIZACION                             </small></th>
-        <th width="50"><small>ESTADO                                        </small></th>
+        <th width="150"><small>CÓDDIGO DE AUTORIZACION                             </small></th>
         <th width="150"><small>NIT/CI CLIENTE                                </small></th>
+        <th width="150"><small>COMPLEMENTO                                </small></th>
         <th width="150"><small>NOMBRE O RAZON SOCIAL                         </small></th>
         <th width="150"><small>IMPORTE TOTAL DE LA VENTA                     </small></th>
         <th width="150"><small>IMPORTE ICE/IEHD/TASAS                        </small></th>
-        <th width="150"><small>EXPORTACIONES Y OPERACIONES EXENTAS           </small></th>
+        <th width="150"><small>IMPORTE IEHD                        </small></th>
+        <th width="150"><small>IMPORTE IPJ                        </small></th>
+        <th width="150"><small>TASAS                        </small></th>
+        <th width="150"><small>OTROS NO SUJETOS AL IVA                        </small></th>
+        <th width="150"><small>EXPORTACIONES Y OPERACIONES EXENTAS          </small></th>
         <th width="150"><small>VENTAS GRAVADAS A TASA CERO                   </small></th>
         <th width="150"><small>SUBTOTAL                                      </small></th>
         <th width="150"><small>DESCUENTOS, BONIFICACIONES Y REBAJAS OTORGADAS</small></th>
+        <th width="150"><small>IMPORTE GIFT CARD</small></th>
         <th width="150"><small>IMPORTE BASE PARA DEBITO FISCAL               </small></th>
         <th width="150"><small>DEBITO FISCAL                                 </small></th>
+        <th width="50"><small>ESTADO                                        </small></th>
         <th width="150"><small>CODIGO DE CONTROL                             </small></th>
+        <th width="150"><small>TIPO DE VENTA                            </small></th>
     </tr>
 </thead>
 
@@ -42,6 +49,7 @@ foreach($fact as $f){$i++;
     /*echo "<pre>";
     print_r($f);
     echo "</pre>";*/
+    $Complemento = $f['Complemento'];
     if($f['Estado']=="Valido"){
         $Nit=$f['Nit'];
         $NombreFactura=mb_strtoupper($f['Factura'],"utf8");
@@ -60,18 +68,25 @@ foreach($fact as $f){$i++;
         <td align="right"><?php echo date("d/m/Y",strtotime($f['FechaFactura']))?></td>
         <td align="right"><?php echo $f['NFactura']?></td>
         <td align="right"><?php echo $f['NumeroAutorizacion']?></td>
-        <td align="center"><?php echo $f['Estado']=="Valido"?'V':'A'?></td>
         <td align="right"><?php echo $Nit?></td>
+        <td><?php echo $Complemento?></td>
         <td><?php echo $NombreFactura?></td>
         <td align="right"><?php echo number_format($TotalBs,2,'.',"")?></td>
         <td align="right"><?php echo number_format(0,2,'.',"")?></td>
         <td align="right"><?php echo number_format(0,2,'.',"")?></td>
         <td align="right"><?php echo number_format(0,2,'.',"")?></td>
+        <td align="right"><?php echo number_format(0,2,'.',"")?></td>
+        <td align="right"><?php echo number_format(0,2,'.',"")?></td>
+        <td align="right"><?php echo number_format(0,2,'.',"")?></td>
+        <td align="right"><?php echo number_format(0,2,'.',"")?></td>
         <td align="right"><?php echo number_format($TotalBs,2,'.',"")?></td>
+        <td align="right"><?php echo number_format(0,2,'.',"")?></td>
         <td align="right"><?php echo number_format(0,2,'.',"")?></td>
         <td align="right"><?php echo number_format($TotalBs,2,'.',"")?></td>
         <td align="right"><?php echo number_format($TotalBs*0.13,2,'.',"")?></td>
+        <td align="center"><?php echo $f['Estado']=="Valido"?'V':'A'?></td>
         <td><?php echo $CodigoControl?></td>
+        <td align="right">0</td> 
       </tr>
   <?php
 }

@@ -58,7 +58,7 @@ $lectura=1;
             <tr>
                 <th>Fecha<br><input type="date" class="fecha form-control" name="FechaFactura" value="<?php echo fecha2Str("",0)?>" required <?=$lectura?'readonly':''?>></th>
 
-                <th>Nº Factura<br><input type="number" class="derecha NFactura form-control" name="NFactura" value="<?php echo isset($_GET['f'])?$_GET['NFactura']:$NFactura?>" required <?=$lectura?'readonly':''?>></th>
+                <th colspan="2">Nº Factura<br><input type="number" class="derecha NFactura form-control" name="NFactura" value="<?php echo isset($_GET['f'])?$_GET['NFactura']:$NFactura?>" required <?=$lectura?'readonly':''?>></th>
 
                 <th>Nº Referencia<br><input type="text" class="derecha span12 form-control" name="NReferencia" readonly value="<?php echo $NReferencia?>" required ></th>
             </tr>
@@ -76,6 +76,7 @@ $lectura=1;
                 </th>
 
                 <th>CI/Nit<br><input type="number" class="span12 form-control" name="Nit" required></th>
+                <th>Complemento<br><input type="text" class="span12 form-control" name="Complemento"></th>
 
                 <th>Señores<br><input type="text" class="span12 form-control" name="NombreFactura" required value=""></th>
 
