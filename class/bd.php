@@ -62,7 +62,7 @@ class bd
 	{
 		//echo $data;
 		if ($f == "lock" && md5("lock") == md5($f)) {
-			mysql_query($data); //or die(mysql_error($this->l));
+			mysqli_query($this->l, $data); //or die(mysql_error($this->l));
 		}
 	}
 	function statusTable()
@@ -187,7 +187,9 @@ class bd
 		}
 		$datos = implode(",", $data);
 		$nombretabla = mb_strtolower($this->tabla, "utf8");
-		// echo "UPDATE {$nombretabla} SET $datos $where";echo "<br>";
+		// echo "UPDATE {$nombretabla} SET $datos $where";
+		// echo "<br>";
+		// exit();
 		return mysqli_query($this->l, "UPDATE $nombretabla SET $datos $where");
 	}
 	public function vaciar()
@@ -291,7 +293,8 @@ class bd
 				$condicion = " Activo=1";
 			} else {
 				$condicion = " and Activo=1";
-			} elseif ($activo == 0) :
+			}
+		elseif ($activo == 0) :
 			if ($where == "") {
 				$condicion = " Activo=0";
 			} else {
